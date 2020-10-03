@@ -1,0 +1,104 @@
+.loginFormContainer {
+    margin: 16px;
+    margin-top: 50px;
+    max-width: 500px;
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 50px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.red {
+    color: black;
+}
+
+.linkTo {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    &, :visited{
+        color:black;
+    }
+}
+
+
+
+
+.sessionOrMessage {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: black;
+}
+
+.blue{
+    color: blue;
+}
+
+.sessionSubmit {
+    font-size: inherit;
+    text-align: center;
+    position: relative;
+    // text-align: center;
+    
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    min-height: 38px;
+    padding: 10px 10px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background: #E60122;
+    border: solid 3px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.sessionSubmitDemo {
+    font-size: inherit;
+    text-align: center;
+    position: relative;
+    // text-align: center;
+    
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    min-height: 38px;
+    padding: 10px 10px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background: #3b5998;
+    border: solid 3px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.sessionSubmit:hover {
+     background-color: rgb(224, 90, 112);
+     cursor: pointer;
+    }
+.sessionSubmitDemo:hover {
+     background-color: #71809f;
+     cursor: pointer;
+    }
+
+
+// .loginInput {
+//     position: relative;
+//     justify-content: center;
+//     width: 69%;
+//     min-height: 30px;
+//     padding: 4px 16px;
+//     background-color: inherit;
+//     border: solid 2px;
+//     border-color: lightgrey;
+//     border-radius: 20px;
+// }

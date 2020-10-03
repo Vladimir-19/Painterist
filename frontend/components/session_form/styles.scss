@@ -1,0 +1,19 @@
+.green {
+    color: green;
+}
+
+.red {
+    color: rgb(0, 0, 0);
+}
+
+.loginInput {
+    position: relative;
+    justify-content: center;
+    width: 69%;
+    min-height: 30px;
+    padding: 4px 16px;
+    background-color: inherit;
+    border: solid 2px;
+    border-color: lightgrey;
+    border-radius: 20px;
+}
