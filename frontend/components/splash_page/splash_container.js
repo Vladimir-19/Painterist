@@ -1,19 +1,11 @@
-import {
-    connect
-} from 'react-redux';
+import { connect } from 'react-redux';
 
-import {
-    logoutUser
-} from '../../actions/session_actions';
-import {
-    openModal
-} from '../../actions/modal_actions';
+import { logoutUser } from '../../actions/session_actions';
+import { openModal } from '../../actions/modal_actions';
 import Splash from './splash';
 
-const mapStateToProps = ({
-    session
-}) => ({
-    currentUser: session.currentUser
+const mapStateToProps = ({ session, entities }) => ({
+    currentUser: session && session.id && entities.users[session.id]
 });
 
 const mapDispatchToProps = dispatch => ({

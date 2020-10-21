@@ -6,7 +6,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util'
 import { openModal, closeModal } from '../actions/modal_actions';
-import NavBar from '../components/navbar/navbar'
+import NavBar from '../components/navbar/navbar_container'
 import AuthBox from './AuthBox/AuthBox'
 import Modal from './modal/modal'
 import Footer from './footer/footer'
@@ -17,16 +17,19 @@ const DummyComponent = () => <h2>I'm logged in</h2>
 
 const App = () => (
     <div className="app-component">
+        {/* loading */}
         <Modal />
-        {/* <AuthBox /> */}
         <header>
-            <NavBar />
-                <h1>i'm from app.jsx</h1>
+            <ProtectedRoute path="/" component={NavBar} />
         </header>
         
+      
+        <h1>i'm from app.jsx</h1>
         <Switch>
             <Route exact path="/" component={SplashContainer} />
         </Switch>
+
+
         {/* <Switch>
             
             <Route path="/login">
@@ -39,9 +42,9 @@ const App = () => (
                 <Route exact path="/" component={SplashContainer} />
             </Route>
             <AuthRoute path="/" component={DummyComponent} />
-               
-        </Switch>
-         */}
+            <Modal />
+        </Switch> */}
+        
         <footer><Footer /></footer>
          
     </div>

@@ -11,17 +11,17 @@ export const FooterItems = [
         url: '#',
         cName: 'footer-link'
     },
-    {
-        id: 3,
-        title: 'Link',
-        url: '#',
-        cName: 'footer-link'
-    },
-    {
-        id: 4,
-        title: 'Link',
-        url: '#',
-        cName: 'footer-link'
+    // {
+    //     id: 3,
+    //     title: 'Link',
+    //     url: '#',
+    //     cName: 'footer-link'
+    // },
+    // {
+    //     id: 4,
+    //     title: 'Link',
+    //     url: '#',
+    //     cName: 'footer-link'
 
-    },
+    // },
 ]
