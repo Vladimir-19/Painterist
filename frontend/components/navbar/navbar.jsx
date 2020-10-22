@@ -60,39 +60,48 @@ class NavBar extends React.Component {
                             </div>
                             
                             
-                            <div className='icon-wrapper'>
-                                <h3>Pho to</h3>
-                                {/* <Link to={`/${currentUser.username}`} className="nav-bar-link">
+                            {/* <i class="fas fa-users"></i> */}
+                            <div className="nav-bar-button" id="following">
+                                <NavLink to="/following" className="nav-bar-link">
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">
-                                            <div id="profile-icon-frame">
-                                                {profilePhoto}
-                                            </div>
+                                            <i className="fas fa-users" id="following-icon"></i>
                                         </div>
                                     </div>
-                                </Link> */}
+                                </NavLink>
+                            </div>
+
+                            <div className='icon-wrapper'>
+                                <Link to={`/${currentUser.username}`} className="nav-bar-link">
+                                    <div className="icon-container-shadow">
+                                        <div className="icon-container">
+                                            {/* <div id="profile-icon-frame">
+                                                {profilePhoto}
+                                            </div> */}
+                                            <i className="far fa-user-circle"></i>
+                                        </div>
+                                    </div>
+                                </Link>
                             </div>
                             
                             <div className="nav-bar-button" id="github">
-                                <h4>Git H</h4>
-                                {/* <a href="https://github.com/Vladimir-19/Painterist" target="_blank" className="nav-bar-link">
+                                <a href="https://github.com/Vladimir-19/Painterist" target="_blank" className="nav-bar-link">
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">
                                             <i className="fab fa-github-square" id="networking-icon"></i>
                                         </div>
                                     </div>
-                                </a> */}
+                                </a>
                             </div>
 
                             <div className="nav-bar-button" id="linkedin">
-                                <h4>Lkd In</h4>
-                                {/* <a href="https://github.com/Vladimir-19" target="_blank" className="nav-bar-link">
+                                <a href="https://github.com/Vladimir-19" target="_blank" className="nav-bar-link">
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">
                                             <i className="fab fa-linkedin" id="networking-icon"></i>
                                         </div>
                                     </div>
-                                </a> */}
+                                </a>
                             </div>
 
 
