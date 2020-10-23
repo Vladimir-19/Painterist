@@ -2,12 +2,15 @@
 // This file will be responsible for combining our reducers that handle relational data.
 
 import {combineReducers} from 'redux';
-import usersReducer from './users_reducer';
-
+import users from './users_reducer';
+// import boards from
+import pins from './pins_reducer';
+// import boardsPins from 
 
 
 const entitiesReducer = combineReducers({
-   users: usersReducer
+   users,
+   pins
 });
 
 export default entitiesReducer;

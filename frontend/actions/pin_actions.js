@@ -32,8 +32,8 @@ export const fetchPins = () => dispatch => (
     )
 );
 
-export const fetchPin = pinId => despatch => (
-    PinAPIUtil.fetchPin(pinId).then(
+export const fetchSinglePin = pinId => despatch => (
+    PinAPIUtil.fetchSinglePin(pinId).then(
         pin => despatch(receivePin(pin))
     )
 );
