@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import PinShow from "./pin_show";
 
-import { fetchPin } from "../../actions/pin_actions";
+import { fetchSinglePin } from "../../actions/pin_actions";
 import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = disoatch => ({
-    fetchPin: pinId => dispatch(fetchPin(pinId)),
+    fetchSinglePin: pinId => dispatch(fetchSinglePin(pinId)),
     openEditPin: pinId => dispatch(openModal("edit-pin", pinId)),
     openNewBoardPin: pinId => dispatch(openModal("new-board-pin", pinId)),
 });

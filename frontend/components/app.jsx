@@ -2,6 +2,9 @@ import React from 'react';
 import { connect, Provider } from 'react-redux';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 
+import CreatrPinFormContainer from "./pin/form/create_pin_form_container";
+import PinShowContainer from "./pin/pin_show_container";
+
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util'
@@ -23,9 +26,10 @@ const App = () => (
             <ProtectedRoute path="/" component={NavBar} />
         </header>
         
-      
         <h1>i'm from app.jsx</h1>
         <Switch>
+            <ProtectedRoute exact path="/pin-builder" component={CreatrPinFormContainer}/>
+            <ProtectedRoute exact path="/pin/:pinId" component={PinShowContainer}/>
             <Route exact path="/" component={SplashContainer} />
         </Switch>
 

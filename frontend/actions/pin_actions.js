@@ -1,4 +1,4 @@
-import { faDraftingCompass } from '@fortawesome/free-solid-svg-icons';
+// import { faDraftingCompass } from '@fortawesome/free-solid-svg-icons';
 import * as PinAPIUtil from '../util/pin_api_util';
 
 export const RECEIVE_PINS = "RECEIVE_PINS";
