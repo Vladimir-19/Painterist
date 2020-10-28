@@ -18,11 +18,7 @@ class NavBar extends React.Component {
         // }
 
         // this.handleLogout = this.handleLogout.bind(this);
-    };
-
-     
-
-    // THIS LOGOUT I
+    }
 
     handleLogout() {
         this.props.logout().then(this.props.openModal('login'));
@@ -36,8 +32,7 @@ class NavBar extends React.Component {
         const profilePhoto = ((currentUser) && (currentUser.photoUrl)) ? (
             <img className="nav-profile-image" src={currentUser.photoUrl} />
         ) : (
-                // <i class="fas fa-user-circle" id="profile-icon" style={{ "color": "#8e8e8e" }}></i>
-                <i class="fas fa-user-circle"></i>
+                <i className="far fa-user-circle" id="profile-icon" style={{ "fontSize": "23px", "color": "#8e8e8e"}}></i>
             );
 
         if (currentUser) {
@@ -51,17 +46,18 @@ class NavBar extends React.Component {
                             <a key="2" className="nav-link-home" href="#">
                                 Home
                             </a>
-                            <a key="3" className="nav-link-home" href="#">
-                                Following
-                            </a>
+                                <NavLink to="/following" className="nav-bar-link">
+                                        <div className="nav-link-home">
+                                            Following
+                                        </div>
+                                </NavLink>
+                            
                             <div className="nav-bar-search-container" id="search">
                                 {/* SearchContainer */}
                                 <h6>i'm a search bar insode of nav bar</h6>
                             </div>
                             
-                            
-                            {/* <i class="fas fa-users"></i> */}
-                            <div className="nav-bar-button" id="following">
+                            {/* <div className="nav-bar-button" id="following">
                                 <NavLink to="/following" className="nav-bar-link">
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">
@@ -69,16 +65,15 @@ class NavBar extends React.Component {
                                         </div>
                                     </div>
                                 </NavLink>
-                            </div>
+                            </div> */}
 
                             <div className='icon-wrapper'>
                                 <Link to={`/${currentUser.username}`} className="nav-bar-link">
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">
-                                            {/* <div id="profile-icon-frame">
+                                            <div id="profile-icon-frame">
                                                 {profilePhoto}
-                                            </div> */}
-                                            <i className="far fa-user-circle"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>

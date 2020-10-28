@@ -1,3 +1,4 @@
+// this is hoverd black thing on singup-in page
 import React from 'react';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
