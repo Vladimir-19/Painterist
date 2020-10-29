@@ -68,7 +68,7 @@ class NavBar extends React.Component {
                             </div> */}
 
                             <div className='icon-wrapper'>
-                                <Link to={`/${currentUser.username}`} className="nav-bar-link">
+                                <Link to={`/${currentUser.email}`} className="nav-bar-link">
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">
                                             <div id="profile-icon-frame">

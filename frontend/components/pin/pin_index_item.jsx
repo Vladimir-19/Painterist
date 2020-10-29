@@ -35,7 +35,7 @@ class PinIndexItem extends React.Component {
             </div>
         ) : null;
 
-        const editPinLink = (page === 'profile' && location.hash.includes(user.username)) ? (
+        const editPinLink = (page === 'profile' && location.hash.includes(user.email)) ? (
             <a className="pin-index-item edit-pin-link"
                onClick={() => openEditPin(pin.id)}
             >

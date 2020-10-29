@@ -23,7 +23,7 @@ render() {
     if (!pin) 
         return <div style={{ "paddingTop": "65px" }}>Loading...</div>;
 
-    const pinOwner = pin.user || {username: ""};
+    const pinOwner = pin.user || {email: ""};
     const pinOwnerFullName = `${pinOwner.firstName} ${pinOwner.lastName}`;
     const imgLink = (pin.url === "") ? (
         <div className="pin-show pin-link">
@@ -57,7 +57,7 @@ const pinSource = (pin.url === "") ? (
     ) : (
     <div className="pin-show source-link">
         <div> Uploaded by&nbsp;
-            <Link to={`/${pinOwner.username}`}>
+            <Link to={`/${pinOwner.email}`}>
                 <strong>{pinOwnerFullName}</strong>
             </Link>
         </div>
@@ -76,7 +76,7 @@ const pinTitle = (pin.url === "") ? (
 
 const pinCreatePhoto = (
     <Link
-        to={`/${pinOwner.username}`}
+        to={`/${pinOwner.email}`}
         className="pin-show profile-link-frame">
         <img src={pinOwner.photo} className="pin-show profile-link-photo" />
         <div className="pin-show overlay"></div>
@@ -91,14 +91,14 @@ const name = (pinOwner.id === currentUserId) ? (
 const pinCreditText = (
     <div className="pin-show credit-summary">
         <Link
-            to={`/${pinOwner.username}`}
+            to={`/${pinOwner.email}`}
             className="pin-show credit-link"
         >
             <strong>{pinOwnerFullName}</strong>
         </Link>
         <span>&nbsp;saved to&nbsp;</span>
         <Link
-            to={`/${pinOwner.username}/${pin.boardTitle}`}
+            to={`/${pinOwner.email}/${pin.boardTitle}`} 
             className="pin-show credit-link">
             <strong>{pin.boardTitle}</strong>
         </Link>

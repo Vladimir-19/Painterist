@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 
-class EditPinForm extends React.Component {
+class EditProfileForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = this._getInitialState();
@@ -13,12 +13,12 @@ class EditPinForm extends React.Component {
         this.handleFile = this.handleFile.bind(this);
     }
 
-    _getInitialState () {
+    _getInitialState() {
         const user = this.props.currentUser;
         const initialState = Object.assign({}, {
             id: user.id,
             first_name: user.firstName || "",
-            last_name: user.lastNamr || "",
+            last_name: user.lastName || "",
             email: user.email,
             description: user.description || "",
             location: user.location || "",
@@ -31,15 +31,15 @@ class EditPinForm extends React.Component {
 
     handleCancel(e) {
         e.preventDefault();
-        this.setState(this._getInitialState);
-    };
 
-    handleDone(e) {    
+        this.setState(this._getInitialState);
+    }
+
+    handleDone(e) {
         e.preventDefault();
         const details = Object.assign({}, this.state);
         delete details["id"];
         delete details["photoPreview"];
-        
         if (!this.state.photoPreview) {
             delete details["photo"];
         }
@@ -76,7 +76,7 @@ class EditPinForm extends React.Component {
         const profilePhoto = (this.state.photo) ? (
             <img src={this.state.photo} alt="profile_photo" className="edit-profile" id="photo" />
         ) : (
-                <i className="fas fa-user-circle" id="photo"></i>
+                <i className="far fa-user-circle" id="photo"></i>
             );
         const displayPhoto = (this.state.photoPreview) ? (
             <img src={this.state.photoPreview} className="edit-profile" id="photo" />
@@ -94,7 +94,7 @@ class EditPinForm extends React.Component {
                         <div id="back-button-padding">
                             <div id="back-button-position">
                                 <div id="back-button-container">
-                                    <NavLink to={`/${currentUser.username}`} id="user-profile-link">
+                                    <NavLink to={`/${currentUser.email}`} id="user-profile-link">
                                         <div id="back-icon-container-shadow">
                                             <div id="back-icon-container">
                                                 <i className="fas fa-arrow-left" id="back-icon"></i>
@@ -225,7 +225,7 @@ class EditPinForm extends React.Component {
                                                     <div className="edit-profile" id="username">
                                                         <input
                                                             type="text"
-                                                            value={this.state.username}
+                                                            // value={this.state.username}
                                                             onChange={this.changeInput("username")}
                                                             className="edit-profile input"
                                                         />
