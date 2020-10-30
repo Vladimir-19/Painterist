@@ -1,7 +1,7 @@
 import React from "react";
 import PinIndexItem from "./pin_index_item";
 
-const shuffle = require("shuffle-array");
+// const shuffle = require("shuffle-array");
 const masonryEvents = ["load", "resize"];
 
 class PinIndex extends React.Component {

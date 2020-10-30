@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Link, NavLink } from "react-router-dom";
 
 import ProfileSwitches from "./profile_switches";
-import BoardIndexContainer from "../board/board_index_container";
+// import BoardIndexContainer from "../board/board_index_container";
 import PinIndexContainer from "../pin/pin_index_container";
 
 class ProfileContent extends React.Component {
@@ -26,7 +26,7 @@ class ProfileContent extends React.Component {
         const userPins = pins.filter(pin => pin.userId === user.id);
 
         const contentTabs = [
-            <BoardIndexContainer user={user} boards={userBoards} />,
+            // <BoardIndexContainer user={user} boards={userBoards} />,
             <PinIndexContainer pins={userPins} page='profile' />
         ];
         const selectedTab = contentTabs[this.state.selectedSwitch];
