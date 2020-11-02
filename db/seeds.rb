@@ -13,10 +13,11 @@ Board.destroy_all
 Pin.destroy_all
 BoardPins.destroy_all
 
+# user_id: 28
 user = User.creatr(
-    email: 'vladimir.gmail.com',
     first_name: 'Vladimir',
     last_name: 'Solovey',
+    email: 'vladimir@gmail.com',
     password: '123123',
     location: 'NYC',
     description: 'Hello World!'
@@ -24,3 +25,17 @@ user = User.creatr(
 
 file = open("https://painterest-seeds.s3-us-west-1.amazonaws.com/profile_photos/bob_ross.jpg")
 user.photo.attach(io: file, filename: "bob_ross.jpg")
+
+pin1 = Pin.create!(title: 'Milking stool', description: 'poss option for steven''s renno', user_id: user.id, source_link: 'www.dwr.com')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin1.jpeg')
+pin1.photo.attach(io: file, filename: 'pin1.jpeg')
+
+pin = Pin.create(
+  title: "",
+  description: "Abstract Art 1",
+  url: "",
+  user_id: 28
+)
+
+file = open("https://painterest-seeds.s3-us-west-1.amazonaws.com/abstract_art/AB00001.jpg")
+pin.photo.attach(io: file, filename: "AB00001.jpg")

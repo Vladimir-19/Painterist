@@ -6,12 +6,12 @@ import {fetchAllUsers, fetchSingleUser } from "../../actions/user_action";
 import ProfileShow from "./profile_show";
 
 const mapSttateToProps = (state, props) => ({
-    currentUser: state.entities.user[state.session.id],
+    currentUser: state.entities.users[state.session.id],
     // users: Object.values(state.entities.users),
     email: props.match.params.email,
-    boards: Object.values(state,entitles.boards),
-    boardsPins: state.entitles.boardsPins,
-    pins: Object.values(state.entitles.pins),
+    // boards: Object.values(state,entitles.boards),
+    // boardsPins: state.entitles.boardsPins,
+    // pins: Object.values(state.entitles.pins),
 });
 
 const mapDispatchToProps = dispatch => ({

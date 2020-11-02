@@ -9,7 +9,8 @@ const ProfileHeader = ({ currentUser, user, openModal, closeModal }) => {
     return (
         <div id="profile-header">
             <div id="profile-header-upper">
-                <div id="profile-header-fixed">
+                {/* <div id="profile-header-fixed" > it was covering nav bar in personal */}
+                <div >
                     <div id="profile-nav-bar-container" className={`${klass}`}>
                         <ProfileNavBar
                             user={user}

@@ -4,8 +4,12 @@ class User < ApplicationRecord
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
   
+  validates :first_name, :last_name, length: { maximum: 30 }
+  validates :location, length: { maximum: 50 }
 
-  after_initialize :ensure_session_token
+  
+
+  after_initialize :ensure_session_token  #:parse_email
 
   attr_reader :password 
 
@@ -43,6 +47,8 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom.base64(64)
   end
 
-  
+  # def parse_email
+  #   self.username ||= self.email.split("@")[0]
+  # end
 
 end

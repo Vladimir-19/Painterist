@@ -6,6 +6,11 @@ import ProfileSwitches from "./profile_switches";
 import PinIndexContainer from "../pin/pin_index_container";
 
 class ProfileContent extends React.Component {
+    // probobly DO NOT NEED this (only in case of error “Cannot read property 'id' of undefined”)
+    // static defaultProps = { // <-- DEFAULT PROPS
+    //     pins: []       // undefined gets converted to array,render won't trigger error
+    // }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -22,18 +27,19 @@ class ProfileContent extends React.Component {
     render() {
         const { user, boards, pins, openModal, closeModal } = this.props;
 
-        const userBoards = boards.filter(board => board.userId === user.id);
-        const userPins = pins.filter(pin => pin.userId === user.id);
+        // const userBoards = boards.filter(board => board.userId === user.id);
+        // const userPins = pins.filter(pin => pin.userId === user.id);
 
         const contentTabs = [
             // <BoardIndexContainer user={user} boards={userBoards} />,
-            <PinIndexContainer pins={userPins} page='profile' />
+            // <PinIndexContainer pins={userPins} page='profile' />
         ];
         const selectedTab = contentTabs[this.state.selectedSwitch];
         const pinCount = (this.state.selectedSwitch === 1) ? (
             <div className="profile-show pin-count-container">
                 <div className="profile-show pin-count">
-                    <span className="profile-show number">{userPins.length} </span>Pins
+                    {/* <span className="profile-show number">{userPins.length} </span> */}
+                    Pins
         </div>
             </div>
         ) : null;

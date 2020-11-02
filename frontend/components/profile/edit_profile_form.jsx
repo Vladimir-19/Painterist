@@ -183,7 +183,7 @@ class EditProfileForm extends React.Component {
                                                         <div className="edit-profile input-container">
                                                             <input
                                                                 type="text"
-                                                                placeholder="Ex. Jo"
+                                                                placeholder="First Name"
                                                                 value={this.state.first_name}
                                                                 onChange={this.changeInput("first_name")}
                                                                 className="edit-profile input"
@@ -201,7 +201,7 @@ class EditProfileForm extends React.Component {
                                                         <div className="edit-profile input-container">
                                                             <input
                                                                 type="text"
-                                                                placeholder="Ex. Jo"
+                                                                placeholder="Last Name"
                                                                 value={this.state.last_name}
                                                                 onChange={this.changeInput("last_name")}
                                                                 className="edit-profile input"
