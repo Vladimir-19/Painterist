@@ -211,7 +211,7 @@
 
 #nav-bar-name-container {
   width: 33.33333%;
-  display: block;
+//   display: block;
 }
 
 #nav-bar-name-fixed {
@@ -309,11 +309,13 @@
   padding: 0px 8px;
   flex-direction: column;
   display: flex;
+  background-color: #ad081b;
 }
 
 #profile-name-container {
   margin-left: -1px;
-  box-sizing: border-box;
+//   box-sizing: border-box;
+  background-color: yellow;
 }
 
 #profile-name {
@@ -423,6 +425,7 @@
   will-change: transform;
   border-radius: 50%;
   position: relative;
+  background-color: blue;
 }
 
 #profile-image-frame {
@@ -432,6 +435,7 @@
   border-radius: 50%;
   overflow: hidden;
   position: relative;
+  background-color: pink;
 }
 
 #profile-photo {

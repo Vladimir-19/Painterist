@@ -54,8 +54,8 @@ class ProfileNavBar extends React.Component {
 
     render() {
         const { user, openModal, closeModal } = this.props;
-        // const name = (user.firstName) ? (user.firstName + " " + user.lastName) : user.username;
-        const name = "Vladimir"
+        const name = (user.firstName) ? (user.firstName + " " + user.lastName) : user.username;
+        // const name = "Vladimir"
 
         return (
             <div id="profile-nav-bar-wrapper">
