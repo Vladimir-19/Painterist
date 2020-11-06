@@ -28,7 +28,7 @@ const App = () => (
             <ProtectedRoute path="/" component={NavBar} />
         </header>
         
-        <h1>i'm from app.jsx</h1>
+        {/* <h1>i'm from app.jsx</h1> */}
         <Switch>
             <ProtectedRoute exact path="/pin-builder" component={CreatrPinFormContainer}/>
             <ProtectedRoute exact path="/pin/:pinId" component={PinShowContainer}/>

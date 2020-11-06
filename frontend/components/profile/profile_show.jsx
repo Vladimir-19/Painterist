@@ -28,22 +28,26 @@ class ProfileShow extends React.Component {
     render() {
         const { currentUser, users, email, boards, pins, openModal, closeModal } = this.props;
         // const user = users.find(user => user.email === email);
+        const user = this.props.currentUser
 
         return (
-            <div id="profile-background">
+            // <div id="profile-background">
+            <div> 
                 <div id="profile-container">
+                {/* <div>  */}
                     <div id="profile">
                         <div id="profile-header-container">
                             <ProfileHeader
                                 currentUser={currentUser}
-                                // user={user}
+                                user={user}
                                 openModal={openModal}
                                 closeModal={closeModal}
-                            />
+                            /> 
+                            
                         </div>
                         <div id="profile-content-container">
                             <ProfileContent
-                                // user={user}
+                                user={user}
                                 // boards={boards}
                                 // pins={pins}
                                 openModal={openModal}

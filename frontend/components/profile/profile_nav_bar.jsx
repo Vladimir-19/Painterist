@@ -110,20 +110,21 @@ class ProfileNavBar extends React.Component {
                                 <Link to="/settings#profile" className="profile-header-link">
                                     <div className="profile-icon-container-shadow">
                                         <div className="profile-icon-container">
-                                            <i className="fas fa-pencil-alt" id="edit-profile-icon"></i>
+                                            <i class="fas fa-user-edit" id="edit-profile-icon" ></i>
                                         </div>
                                     </div>
                                 </Link>
                             </div>
                         </div>
                     </div>
-                    <div id="nav-bar-name-container">
+                    {/* <div id="nav-bar-name-container">
                         <div id="nav-bar-name-fixed">
                             <div id="nav-bar-name" className={this.state.fadeInName ? "transitionIn" : "transitionOut"}>
-                                <h3>{name}</h3>
+                                
                             </div>
                         </div>
-                    </div>
+                        <h3>{name}</h3>
+                    </div> */}
                 </div>
             </div>
         )
