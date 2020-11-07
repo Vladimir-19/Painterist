@@ -27,7 +27,6 @@ const App = () => (
         <header>
             <ProtectedRoute path="/" component={NavBar} />
         </header>
-        
         {/* <h1>i'm from app.jsx</h1> */}
         <Switch>
             <ProtectedRoute exact path="/pin-builder" component={CreatrPinFormContainer}/>
@@ -37,9 +36,7 @@ const App = () => (
             <Route exact path="/" component={SplashContainer} />
         </Switch>
 
-
         {/* <Switch>
-            
             <Route path="/login">
                 <h2>one of us</h2>
                 <LogInFormContainer/>
@@ -52,9 +49,7 @@ const App = () => (
             <AuthRoute path="/" component={DummyComponent} />
             <Modal />
         </Switch> */}
-        
-        <footer><Footer /></footer>
-         
+        <footer><Footer /></footer>  
     </div>
 );
 export default App;

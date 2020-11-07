@@ -1,8 +1,9 @@
 class Pin < ApplicationRecord
 
-    validates :user_id, :photo, presence: true
+    # validates :user_id, :photo, presence: true
+    validates :title, :user_id, presence: true
 
-    belongs_to :user 
+    # belongs_to :user 
 
     has_many :boards_pins,
         class_name: :BoardsPins,

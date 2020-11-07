@@ -19,6 +19,7 @@ class EditProfileForm extends React.Component {
             id: user.id,
             first_name: user.firstName || "",
             last_name: user.lastName || "",
+            username: user.username,
             email: user.email,
             description: user.description || "",
             location: user.location || "",
@@ -212,7 +213,7 @@ class EditProfileForm extends React.Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="edit-profile" id="username-wrapper">
+                                    {/* <div className="edit-profile" id="username-wrapper">
                                         <div className="edit-profile" id="username-container">
                                             <div className="edit-profile field-container" id="username">
                                                 <div className="edit-profile label-container">
@@ -221,11 +222,11 @@ class EditProfileForm extends React.Component {
                                                 <div className="edit-profile" id="website-username">
                                                     <div className="edit-profile" id="website">
                                                         www.pinterest.com/
-                          </div>
+                                                    </div>
                                                     <div className="edit-profile" id="username">
                                                         <input
                                                             type="text"
-                                                            // value={this.state.username}
+                                                            value={this.state.username}
                                                             onChange={this.changeInput("username")}
                                                             className="edit-profile input"
                                                         />
@@ -233,7 +234,7 @@ class EditProfileForm extends React.Component {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="edit-profile" id="email-wrapper">
                                         <div className="edit-profile" id="email-container">
                                             <div className="edit-profile field-container" id="email">

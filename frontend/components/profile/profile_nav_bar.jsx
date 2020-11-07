@@ -110,7 +110,7 @@ class ProfileNavBar extends React.Component {
                                 <Link to="/settings#profile" className="profile-header-link">
                                     <div className="profile-icon-container-shadow">
                                         <div className="profile-icon-container">
-                                            <i class="fas fa-user-edit" id="edit-profile-icon" ></i>
+                                            <i className="fas fa-user-edit" id="edit-profile-icon" ></i>
                                         </div>
                                     </div>
                                 </Link>
