@@ -1,7 +1,7 @@
-// const { RECEIVE_SINGLE_USER } = require("../actions/user_action")
+// const { RECEIVE_SINGLE_USER } = require("../actions/user_actions")
 
-import { RECEIVE_SINGLE_USER } from "../actions/user_action";
-// import { RECEIVE_BOARD } from 
+import { RECEIVE_SINGLE_USER } from "../actions/user_actions";
+import { RECEIVE_BOARD } from "../actions/board_actions";
 import { 
     RECEIVE_PINS,
     RECEIVE_PIN,
@@ -16,8 +16,8 @@ const PinsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_SINGLE_USER:
             return Object.assign(nextState, action.payload.pins);
-        // case RECEIVE_BOARD:
-        //     return Object.assign(nextState, action.payload.pins);
+        case RECEIVE_BOARD:
+            return Object.assign(nextState, action.payload.pins);
         case RECEIVE_PINS:
             return action.pins;
         case RECEIVE_PIN:

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { openModal, closeModal } from "../../actions/modal_actions";
-import {fetchAllUsers, fetchSingleUser } from "../../actions/user_action";
+import {fetchAllUsers, fetchSingleUser } from "../../actions/user_actions";
 import ProfileShow from "./profile_show";
 
 const mapSttateToProps = (state, props) => ({

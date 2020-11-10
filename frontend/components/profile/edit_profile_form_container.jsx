@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import EditProfileForm from "./edit_profile_form";
-import { updateUser } from "../../actions/user_action";
+import { updateUser } from "../../actions/user_actions";
 
 // const mapStateToProps = statr => ({
 //     errors: state.errors.user,
