@@ -27,7 +27,7 @@ export default class BoardShow extends Component {
             </div>
         ) : (null);
 
-        let boardsPins = boardsPins
+        let boardPins = boardsPins
             .filter(boardPin => board.id === boardPin.boardId)
             .map(boardPin => pins[boardPin.pinId])
             .filter(boardPin => boardPin !== undefined);

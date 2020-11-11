@@ -4,15 +4,16 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 
 import CreatrPinFormContainer from "./pin/form/create_pin_form_container";
 import PinShowContainer from "./pin/pin_show_container";
-
 import EditProfileFormContainer from "./profile/edit_profile_form_container";
 import ProfileShowContainer from "./profile/profile_show_container";
+import BoardShowContainer from "./board/board_show_container";
+
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util'
-import { openModal, closeModal } from '../actions/modal_actions';
+// import { openModal, closeModal } from '../actions/modal_actions';
 import NavBar from '../components/navbar/navbar_container'
-import AuthBox from './AuthBox/AuthBox'
+// import AuthBox from './AuthBox/AuthBox'
 import Modal from './modal/modal'
 import Footer from './footer/footer'
 
@@ -32,7 +33,10 @@ const App = () => (
             <ProtectedRoute exact path="/pin-builder" component={CreatrPinFormContainer}/>
             <ProtectedRoute exact path="/pin/:pinId" component={PinShowContainer}/>
             <ProtectedRoute exact path="/settings" component={EditProfileFormContainer}/>
+            {/* <ProtectedRoute exact path="/following" component={HomeContainer} /> */}
+            <ProtectedRoute exact path="/:username/boards" component={ProfileShowContainer} />
             <ProtectedRoute exact path="/:username" component={ProfileShowContainer} />
+            <ProtectedRoute exact path="/:username/:boardTitle" component={BoardShowContainer}/>
             <Route exact path="/" component={SplashContainer} />
         </Switch>
 
