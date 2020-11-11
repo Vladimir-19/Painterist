@@ -8,7 +8,7 @@ export const RECEIVE_BOARD_ERRORS = "RECEIVE_BOARD_ERRORS";
 
 
 // actions creators 
-const reveiveBoards = boards => ({
+const receiveBoards = boards => ({
     type: RECEIVE_BOARDS,
     boards
 });
