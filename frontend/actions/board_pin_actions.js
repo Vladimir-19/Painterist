@@ -1,6 +1,4 @@
-import { fetchAllBoardsPins } from "../util/board_pin_api_util";
 import * as BoardPinAPIUtil from "../util/board_pin_api_util";
-import { REMOVE_BOARD } from "./board_actions";
 // action types
 export const RECEIVE_ALL_BOARDS_PINS = "RECEIVE_ALL_BOARDS_PINS";
 export const RECEIVE_BOARD_PIN = "RECEIVE_BOARD_PIN";
@@ -27,15 +25,16 @@ const receiveBoardPinErrors = errors => ({
     errors
 });
 
-export const fetchAllBoardPins = () => dispatch => (
-    BoardPinAPIUtil.fetchAllBoardPins().then(
-        boardsPins => dispatchEvent(receiveAllBoardsPins(boardsPins))
+export const fetchAllBoardsPins = () => dispatch => (
+    BoardPinAPIUtil.fetchAllBoardsPins().then(
+        boardsPins => dispatch(receiveAllBoardsPins(boardsPins))
     )
 );
 
 export const createBoardPin = boardPin => dispatch => (
     BoardPinAPIUtil.createBoardPin(boardPin).then(
-        boardPin => dispatch(receiveBoardPin(boardPin)),
+        // boardPin => dispatch(receiveBoardPin(boardPin)),
+        board => dispatch(receiveBoardPin(boardPin)),
         err => dispatch(receiveBoardPinErrors(err.responseJSON))
     )
 );

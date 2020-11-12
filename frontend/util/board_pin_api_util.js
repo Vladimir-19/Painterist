@@ -5,7 +5,7 @@ export const fetchAllBoardsPins = () => (
     })
 );
 
-export const creatrBoarPin = boardPin => (
+export const createBoardPin = boardPin => (
     $.ajax({
         method: "POST",
         url: `/api/boards_pins`,

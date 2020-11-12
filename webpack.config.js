@@ -3,6 +3,7 @@ const path = require('path');
 
 
 module.exports = {
+    
     context: __dirname,
     entry: './frontend/entry.jsx',
     output: {
@@ -18,8 +19,23 @@ module.exports = {
                 query: {
                     presets: ['@babel/env', '@babel/react']
                 }
+                // query: { presets: ['es2015'] },
             },
         },
+            // {
+            //     test: /\.(png|svg|jpe?g|gif)$/,
+            //     include: /images/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 name: '[name].[ext]',
+            //                 outputPath: 'images/',
+            //                 publicPath: 'images/'
+            //             }
+            //         }
+            //     ]
+            // },
         {
             test: /\.s[ac]ss$/i,
             use: [
@@ -48,4 +64,13 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx", "*"]
     },
+    target: 'node',
+    // node: {
+    //     fs: "empty"
+    // },
+    externals: {
+        // fs: "commonjs fs",
+        // path: "commonjs path",
+        fsevents: "require('fsevents')"
+    }
 };
