@@ -10,6 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
         filename: 'bundle.js'
     },
+    target: 'node',
     module: {
         rules: [{
             test: /\.jsx?$/,
@@ -22,6 +23,7 @@ module.exports = {
                 // query: { presets: ['es2015'] },
             },
         },
+        
             // {
             //     test: /\.(png|svg|jpe?g|gif)$/,
             //     include: /images/,
@@ -64,7 +66,7 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx", "*"]
     },
-    target: 'node',
+    // target: 'node',
     // node: {
     //     fs: "empty"
     // },
@@ -72,5 +74,10 @@ module.exports = {
         // fs: "commonjs fs",
         // path: "commonjs path",
         fsevents: "require('fsevents')"
-    }
+    },
+    // plugins: [
+    //     new webpack.DefinePlugin({
+    //         'process.env': {}
+    //     })
+    // ]
 };
