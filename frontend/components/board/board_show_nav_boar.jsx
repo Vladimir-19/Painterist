@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { render } from "sass";
+// import { render } from "sass";
 
 class BoardShowNavBar extends React.Component {
     constructor(props) {

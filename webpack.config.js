@@ -10,7 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
         filename: 'bundle.js'
     },
-    target: 'node',
+    target: 'web',
     module: {
         rules: [{
             test: /\.jsx?$/,
@@ -66,18 +66,4 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx", "*"]
     },
-    // target: 'node',
-    // node: {
-    //     fs: "empty"
-    // },
-    externals: {
-        // fs: "commonjs fs",
-        // path: "commonjs path",
-        fsevents: "require('fsevents')"
-    },
-    // plugins: [
-    //     new webpack.DefinePlugin({
-    //         'process.env': {}
-    //     })
-    // ]
 };
