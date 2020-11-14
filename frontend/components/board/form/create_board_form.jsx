@@ -8,7 +8,7 @@ class CreateBoardForm extends React.Component {
         this.update = this.update.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
         this.handleClose = this.handleClose.bind(this);
-        this.handleCreate = this.handleCreatr.bind(this);
+        this.handleCreate = this.handleCreate.bind(this);
     }
 
     update(e) {

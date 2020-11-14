@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import { creatrBoard } from "../../../actions/board_actions";
+import { createBoard } from "../../../actions/board_actions";
 import { openModal, closeModal } from "../../../actions/modal_actions";
-import CreatrBoardForm from "./create_board_form";
+import CreateBoardForm from "./create_board_form";
 
 const mapStateToProps = state => ({
     board: {"title": "", "desctiption": "", "secret": false},
@@ -11,8 +11,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    processForm: board => dispatch(creatrBoard(board)),
+    processForm: board => dispatch(createBoard(board)),
     closeModal: () => dispatch(closeModal())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreatrBoardForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBoardForm);

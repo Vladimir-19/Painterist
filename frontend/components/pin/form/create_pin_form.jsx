@@ -83,7 +83,7 @@ class CreatePinForm extends React.Component {
         );
     }
 
-    return() {
+    render() {
         const { currentUser, boards, errors, formType } = this.props;
 
         const klass = (this.state.boardList) ? 'show' : 'hide';
@@ -112,7 +112,7 @@ class CreatePinForm extends React.Component {
         return (
             <li
                 key={board.id}
-                className="creatr-pin board-list-item"
+                className="create-pin board-list-item"
                 value={board.id}
                 onClick={this.selectBoard}
                 >
@@ -138,7 +138,7 @@ class CreatePinForm extends React.Component {
                 <div className="create-pin" id="delete-image-button-container">
                     <button className="create-pin" id="delete-image-button" onClick={this.deleteImage}>
                         <div className="create-pin" id="trash-icon-container">
-                            <i class="far fa-trash-alt"></i>
+                            <i className="far fa-trash-alt"></i>
                         </div>
                     </button>
                 </div>

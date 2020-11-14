@@ -1,4 +1,4 @@
-import {connect} from "react";
+import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import CreateBoardPinForm from "./create_board_pin_form";
 
