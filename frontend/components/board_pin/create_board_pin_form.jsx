@@ -4,8 +4,9 @@ class CreateBoardPinForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            pin_id: this.props.pin.id,
-            board_id: null
+            // pin_id: this.props.pin.id,
+            // board_id: null
+            message: false
         };
         this.handleSave = this.handleSave.bind(this);
     }
@@ -22,7 +23,6 @@ class CreateBoardPinForm extends React.Component {
     }
 
     render() {
-        // debugger;
         const { currentUserId, pin, allBoards, closeModal } = this.props;
         const boards = allBoards.filter(board => board.userId === currentUserId);
         const boardListItems = boards.map(board => {
@@ -54,7 +54,7 @@ class CreateBoardPinForm extends React.Component {
         return (
             <div className="create-board-pin container">
                 <div className="create-board-pin header">
-                    <div className="create-board-pin form-title">Choose board</div>
+                    <div className="create-board-pin form-title">Create board</div>
                     <a
                         onClick={closeModal}
                         className="create-board-pin close-link"
@@ -65,7 +65,7 @@ class CreateBoardPinForm extends React.Component {
                 <div className="create-board-pin body">
                     <div className="create-board-pin first-half">
                         <div className="create-board-pin photo-container">
-                            <img src={pin.photo} className="create-board-pin photo" />
+                            {/* <img src={pin.photo} className="create-board-pin photo" /> */}
                         </div>
                     </div>
                     <div className="create-board-pin second-half">

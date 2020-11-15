@@ -9,22 +9,22 @@ import { createBoardPin } from "../../actions/board_pin_actions";
 import { openModal, closeModal } from "../../actions/modal_actions";
 
 const mapStateToProps = state => {
-    const currentUserId = state.session.id;
-    const pin = state.entities.pins[state.ui.objectId];
-    const allBoards = Object.values(state.entities.boards);
+  const currentUserId = state.session.id;
+  const pin = state.entities.pins[state.ui.objectId];
+  const allBoards = Object.values(state.entities.boards);
 
-    return {
-        currentUserId,
-        pin,
-        allBoards,
-    };
+  return {
+    currentUserId,
+    pin,
+    allBoards,
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchBoards: () => dispatch(fetchBoards()),
-    createBoardPin: boardPin => dispatch(createBoardPin(boardPin)),
-    // openNewBoard: () => dispatch(openModal('new-board')),
-    closeModal: () => dispatch(closeModal())
+  fetchBoards: () => dispatch(fetchBoards()),
+  createBoardPin: boardPin => dispatch(createBoardPin(boardPin)),
+  // openNewBoard: () => dispatch(openModal('new-board')),
+  closeModal: () => dispatch(closeModal())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateBoardPinForm));
