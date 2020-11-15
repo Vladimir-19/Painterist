@@ -3,8 +3,8 @@ class Api::BoardsController < ApplicationController
     before_action :require_logged_in
 
     def create
-        # @board = Bpard.new(board_params)
-        @board.user_id = params[:user_id]
+        @board = Bpard.new(board_params)
+        # @board.user_id = params[:user_id]
         @board.user_id = current_user.id
 
         if @board.save

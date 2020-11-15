@@ -1,15 +1,16 @@
-import {connect} from "react-redux";
-import {withRouter} from "react-router-dom";
+import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import CreateBoardPinForm from "./create_board_pin_form";
 
-import {fetchBoards} from "../../actions/board_actions";
-import {createBoardPin} from "../../actions/board_pin_actions";
-import {closeModal} from "../../actions/modal_actions";
-// import { fetchBoard } from "../../util/board_api_util";
+
+import { fetchBoards } from "../../actions/board_actions";
+import { createBoardPin } from "../../actions/board_pin_actions";
+import { openModal, closeModal } from "../../actions/modal_actions";
 
 const mapStateToProps = state => {
     const currentUserId = state.session.id;
-    const pin = state.entities.piins[state.ui.objectId];
+    const pin = state.entities.pins[state.ui.objectId];
     const allBoards = Object.values(state.entities.boards);
 
     return {
@@ -22,6 +23,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     fetchBoards: () => dispatch(fetchBoards()),
     createBoardPin: boardPin => dispatch(createBoardPin(boardPin)),
+    // openNewBoard: () => dispatch(openModal('new-board')),
     closeModal: () => dispatch(closeModal())
 });
 
