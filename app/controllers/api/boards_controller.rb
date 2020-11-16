@@ -2,20 +2,19 @@ class Api::BoardsController < ApplicationController
 
     before_action :require_logged_in
 
-    def create
-        @board = Bpard.new(board_params)
-        # @board.user_id = params[:user_id]
-        @board.user_id = current_user.id
+  def create
+    @board = Board.new(board_params)
+    @board.user_id = current_user.id
 
-        if @board.save
-            render "api/boards/show"            
-        else
-            render json: @board.errors.full_messages, status: 422
-        end
+    if @board.save
+      render "api/boards/show"
+    else
+      render json: @board.errors.full_messages, status: 422
     end
+  end
 
     def show
-        @board = Board.includes(:pins).find(params[:id]])
+        @board = Board.includes(:pins).find(params[:id])
         render "api/boards/show"
     end
 

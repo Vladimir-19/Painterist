@@ -1,7 +1,7 @@
 import React from "react";
 
 class CreateBoardForm extends React.Component {
-    costructor(props) {
+    constructor(props) {
         super(props);
         this.state = this.props.board;
 
@@ -16,8 +16,8 @@ class CreateBoardForm extends React.Component {
     }
 
     handleCheck() {
-        this.setState({ "seret": !this.state.secret });
-        const checkbox = document.getElementById('cisibility-checkbox');
+        this.setState({ "secret": !this.state.secret });
+        const checkbox = document.getElementById('visibility-checkbox');
         if (this.state.secret) {
             checkbox.firstChild.classList.add('checked');
         } else {
@@ -48,7 +48,7 @@ class CreateBoardForm extends React.Component {
                             <div className="create-board" id="header-title-container">
                                 <h1 className="create-board" id="header-title">
                                     Create board
-                </h1>
+                                </h1>
                             </div>
                             <div className="create-board" id="close-button-container">
                                 <button
@@ -74,7 +74,7 @@ class CreateBoardForm extends React.Component {
                                                     id="name-label">
                                                     <div className="create-board label-content">
                                                         Name
-                          </div>
+                                                    </div>
                                                 </label>
                                             </div>
                                             <div className="create-board input-container">
@@ -88,7 +88,8 @@ class CreateBoardForm extends React.Component {
                                                     />
                                                     <div className="create-board error-container">
                                                         <div className="create-board error">
-                                                            <span className="create-board error-content"></span>
+                                                            <span className="create-board error-content">
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </span>
@@ -105,29 +106,31 @@ class CreateBoardForm extends React.Component {
                                                         onClick={this.handleCheck}
                                                     >
                                                         Visibility
-                          </div>
+                                                    </div>
                                                 </label>
+                                                <div className="create-board" id="visibility-note">
+                                                    Keep this board secret.
+                                                </div>
                                             </div>
-                                            <div className="create-board input-container secret">
+                                            {/* <div className="create-board input-container secret"> */}
+                                            <div> 
                                                 <div
                                                     className="create-board"
                                                     id="visibility-checkbox"
                                                     onClick={this.handleCheck}
                                                 >
-                                                    <i
-                                                        className={`fas fa-check-square create-board checkbox ${checked}`}
-                                                        id="visibility-checked"
-                                                    ></i>
+                                                    <i className={`fas fa-check-square create-board checkbox ${checked}`}
+                                                        id="visibility-checked">
+                                                    </i>
+                                                    {/* <i className={`fas fa-toggle-off ${checked}`}></i> */}
                                                 </div>
-                                                <div className="create-board" id="visibility-note">
-                                                    Keep this board secret.
-                        </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="create-board footer-container">
-                                        <div className="create-board footer">
-                                            <div className="create-board buttons-container">
+                                    {/* <div className="create-board footer-container"> */}
+                                        {/* <div className="create-board footer"> */}
+                                            {/* <div className="create-board buttons-container"> */}
                                                 <div className="create-board buttons">
                                                     <div className="create-board button-container">
                                                         <button
@@ -136,7 +139,7 @@ class CreateBoardForm extends React.Component {
                                                             onClick={this.handleCancel}
                                                         >
                                                             Cancel
-                            </button>
+                                                        </button>
                                                     </div>
                                                     <div className="create-board button-container">
                                                         <button
@@ -145,12 +148,12 @@ class CreateBoardForm extends React.Component {
                                                             onClick={this.handleCreate}
                                                         >
                                                             Create
-                            </button>
+                                                        </button>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            {/* </div> */}
+                                        {/* </div> */}
+                                    {/* </div> */}
                                 </form>
                             </div>
                         </div>
