@@ -227,9 +227,9 @@ class SignUpForm extends React.Component {
         }
 
         return (
-            <>
-                <div className="modal-child-text">
-                    <h1>Sign up to get your ideas</h1>
+            <div className="first-page">
+                <div className="login-inviting-container">
+                        <h1 >Sign up to get your ideas</h1>  
                 </div>
                 <div className="login-form-container">
 
@@ -322,7 +322,7 @@ class SignUpForm extends React.Component {
                         </div>
                     </form>
                 </div>
-            </>
+            </div>
         );
     }
 }

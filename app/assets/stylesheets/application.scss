@@ -149,15 +149,15 @@ sub {
   bottom: -0.25em;
 }
 
-img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
+// img {
+//   max-width: 100%;
+//   width: auto;
+//   height: auto;
 
-  vertical-align: middle;
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-}
+//   vertical-align: middle;
+//   border: 0;
+//   -ms-interpolation-mode: bicubic;
+// }
 
 #map_canvas img {
   max-width: none;
@@ -209,9 +209,9 @@ textarea {
 body {
   margin: 0;
 }
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-}
+// h1, h2, h3, h4, h5, h6 {
+//   margin: 0;
+// }
 
 figure {
   margin: 0;

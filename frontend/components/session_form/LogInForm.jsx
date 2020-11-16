@@ -215,8 +215,6 @@ renderErrors() {
 }
 
 render() {
-
-    
     
     let renderMessage;
     let buttonMessage;
@@ -230,10 +228,9 @@ render() {
 
     return (
       
-        <>
-        
-            <div className="modal-child-text">
-                <h1>Sign up to get your ideas</h1>
+        <div className="first-page">
+            <div className="login-inviting-container">
+                <h1 >Sign up to get your ideas</h1>
             </div>
             <div className="login-form-container">
 
@@ -315,7 +312,7 @@ render() {
                     </div>
                 </form>
             </div>
-        </>
+        </div>
     );
 }
 }
