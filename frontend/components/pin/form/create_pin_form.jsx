@@ -90,8 +90,8 @@ class CreatePinForm extends React.Component {
         const dropdownLabel = (this.state.boardId === null) ? (
             "Select"
         ) : (
-            boards.find(board => board.id === this.state.boardId).title
-        );
+                boards.find(board => board.id === this.state.boardId).title
+            );
     
         const clickSave = (this.state.boardId ===  null) ? (
             null
@@ -148,7 +148,7 @@ class CreatePinForm extends React.Component {
                 <div className="create-pin" id="image-upload-area" onClick={this.uploadImage}>
                     <div className="create-pin" id="image-upload-area-border">
                         <div className="create-pin" id="upload-icon-container">
-                                <i class="fas fa-arrow-circle-up"></i>
+                                <i className="fas fa-arrow-circle-up"></i>
                         </div>
                         <div className="create-pin" id="instruction">
                                 Click to upload
@@ -183,13 +183,18 @@ class CreatePinForm extends React.Component {
                                             {dropdownLabel}
                                         </div>
                                     </div>
-                                <div className="create-pin" id="dropdown-icon-container">
-                                    <i class="fas fa-angle-down" id="dropdown-icon"></i>
+                                    <div className="create-pin" id="dropdown-icon-container">
+                                        <i className="fas fa-angle-down" id="dropdown-icon"></i>
+                                    </div>
+                                </div>
+                            <div className="create-pin" id="save-button" onClick={clickSave}>
+                                <div className="create-pin" id="save-button-label">
+                                    Save
                                 </div>
                             </div>
-                            <div className="create-pin" id="save-button" onClick={clickSave}>
+                            <div className={`create-pin board-list container ${klass}`}>
                                 <div className="create-pin board-list triangle">
-                                    <svg width="24" height="24">
+                                    <svg width="24" height="100%">
                                         {/* !!!!!!!! */}
                                             <path d="M0 24 L12 12 L24 24"></path>
                                     </svg>
@@ -210,9 +215,9 @@ class CreatePinForm extends React.Component {
                             {displayImage}
                         </div>
                         <div className="create-pin" id="details-container">
-                            <div className="crate-pin" id="title-container">
+                            <div className="create-pin" id="title-container">
                                 <input type="text"
-                                        className="crate-pin"
+                                        className="create-pin"
                                         id="title"
                                         placeholder="Add your title"
                                         value={this.state.title}
@@ -238,15 +243,6 @@ class CreatePinForm extends React.Component {
                                     placeholder="Tell eryone what your Pin is about"
                                     value={this.state.description}
                                     onChange={this.changeInput("description")}/>
-                            </div>
-                            <div className="create-pin" id="url-container">
-                                <textarea
-                                rows="1"
-                                className="create-pin"
-                                id="description"
-                                placeholder="Tell everyone what your Pin is about"
-                                value={this.state.description}
-                                onChange={this.changeInput("descriprion")}/>
                             </div>
                             <div className="create-pin" id="url-container">
                                 <textarea

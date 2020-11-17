@@ -32,7 +32,7 @@ class CreateBoardForm extends React.Component {
 
     handleCreate(e) {
         e.preventDefault();
-        this.props.processForm(this.state)
+    this.props.processForm(this.state)
             .then(this.props.closeModal);
     }
 
@@ -56,9 +56,9 @@ class CreateBoardForm extends React.Component {
                                     id="close-button"
                                     onClick={this.handleClose}
                                 >
-                                    <div className="create-board" id="close-icon-container">
+                                    {/* <div className="create-board" id="close-icon-container">
                                         <i className="fas fa-times create-board" id="close-icon"></i>
-                                    </div>
+                                    </div> */}
                                 </button>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
-import React from "react";
-import BoardShowNavBar from './board_show_nav_boar';
+import React, { Component } from 'react'
+
+import BoardShowNavBar from './board_show_nav_bar';
 import PinIndexContainer from "../pin/pin_index_container";
-import { Component } from "react";
 
 export default class BoardShow extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export default class BoardShow extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchSingleUser(this.props.currentUser.id)
+        this.props.fetchSingleUser(this.props.currentUser.id);
     }
 
     openEditBoard(e) {
@@ -20,13 +20,15 @@ export default class BoardShow extends Component {
     }
 
     render() {
-        const {currentUser, board, pins, boardsPins} = this.props;
+        const { currentUser, board, pins, boardsPins } = this.props;
+
         const secretIcon = (board.secret) ? (
             <div className="board-show visibility">
-                <i class="fas fa-lock" id="lock-icon"></i>
+                <i className="fas fa-lock board-show" id="lock-icon"></i>
             </div>
-        ) : (null);
-
+        ) : (
+                null
+            );
         let boardPins = boardsPins
             .filter(boardPin => board.id === boardPin.boardId)
             .map(boardPin => pins[boardPin.pinId])
@@ -53,8 +55,8 @@ export default class BoardShow extends Component {
                                     {`${board.pinIds.length} pins`}
                                 </div>
                                 <div className="board-show count follower">
-                                    ·  8 followers
-                            </div>
+                                    ·  7 followers
+                </div>
                             </div>
                         </div>
                         <div className="board-show description">

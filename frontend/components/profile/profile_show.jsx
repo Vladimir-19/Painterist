@@ -17,6 +17,7 @@ class ProfileShow extends React.Component {
         .then(res => {
             const user = Object.values(res.users).find(user => user.email === email);
             // return fetchUser(user.id);
+            // return fetchUser(userId); not hepling
             return fetchUser;
         });
     }

@@ -4,7 +4,7 @@ import PinIndex from "./pin_index";
 import { fetchPins } from "../../actions/pin_actions";
 import { openModal } from "../../actions/modal_actions";
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state, ownProps) => {
     return {
         page: ownProps.page,
         pins: ownProps.pins,
