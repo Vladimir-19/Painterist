@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const masonryEvents = ["load", "resize"];
 
@@ -8,10 +8,10 @@ class PinIndexItem extends React.Component {
         super(props);
         this.state = this.props.pin;
 
-        this.resizrGridItem = this.resizrGridItem.bind(this);
+        this.resizeGridItem = this.resizeGridItem.bind(this);
     }
 
-    resizrGridItem() {
+    resizeGridItem() {
         let item = document.getElementById(this.state.id);
         let grid = document.getElementById('grid');
         let rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
@@ -30,7 +30,7 @@ class PinIndexItem extends React.Component {
         const { userId, user, page, pin,  openEditPin, openNewBoardPin } = this.props;
 
         const pinTitle = (userId !== null && page === "home" && pin.title !== "") ? (
-            <div lassName="pin-index-item title-container">
+            <div className="pin-index-item title-container">
                 <div className="pin-index-item title">{pin.title}</div>
             </div>
         ) : null;

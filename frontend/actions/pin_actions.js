@@ -27,7 +27,8 @@ const receivePinErrors = errors => ({
 });
 
 export const fetchPins = () => dispatch => (
-    PinAPIUtil.fetchPins().then(
+    // PinAPIUtil.fetchPins().then(
+    PinAPIUtil.fetchSinglePin().then(
         pins => dispatch(receivePins(pins))
     )
 );
