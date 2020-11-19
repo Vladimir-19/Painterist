@@ -44,10 +44,10 @@ class BoardShowNavBar extends React.Component {
                     <Link 
                         to="/pin-builder"
                         className="board-show button">
-                            <i class="fas fa-map-pin"></i>
+                            <i className="fas fa-map-pin"></i>
                     </Link>
                     <button className="boar show button" onClick={(e, boardId) => openEditBoard(e, board.id)}>
-                        <i class="far fa-edit" id="edit-board-icon"></i>
+                        <i className="far fa-edit" id="edit-board-icon"></i>
                     </button>
                 </div>
                 <div className="board-show fade-title-container">

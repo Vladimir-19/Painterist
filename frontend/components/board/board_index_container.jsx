@@ -10,8 +10,8 @@ import BoardIndex from "./board_index";
 const mapStateToProps = (state, ownProps) => ({
     boards: ownProps.boards,
     boardsPins: state.entities.boardsPins,
-    pins: state.entitles.pins,
-    currentUser: state.entitles.users[state.session.id],
+    pins: state.entities.pins,
+    currentUser: state.entities.users[state.session.id],
     user: ownProps.user
 });
 

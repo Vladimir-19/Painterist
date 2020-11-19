@@ -46,7 +46,7 @@ class EditPinForm extends React.Component {
                     </div>
                     <div className="edit-pin cancel-link-container">
                         <a className="cancel-link" onClick={this.handleCancel}>
-                            <i class="fal fa-times-circle"></i>
+                            <i className="fal fa-times-circle"></i>
                         </a>
                     </div>
                 </div>

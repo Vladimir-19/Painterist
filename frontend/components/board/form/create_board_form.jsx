@@ -132,7 +132,7 @@ class CreateBoardForm extends React.Component {
                                         {/* <div className="create-board footer"> */}
                                             {/* <div className="create-board buttons-container"> */}
                                                 <div className="create-board buttons">
-                                                    <div className="create-board button-container">
+                                                    {/* <div className="create-board button-container">
                                                         <button
                                                             className="create-board button"
                                                             id="cancel"
@@ -140,7 +140,7 @@ class CreateBoardForm extends React.Component {
                                                         >
                                                             Cancel
                                                         </button>
-                                                    </div>
+                                                    </div> */}
                                                     <div className="create-board button-container">
                                                         <button
                                                             className="create-board button"

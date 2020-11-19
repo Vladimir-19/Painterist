@@ -1,4 +1,4 @@
-#josn.partials! "api/pins/pin", pin: @pin 
+josn.partials! "api/pins/pin", pin: @pin 
 
 json.set! @pin.id do
   json.partial! "api/pins/pin", pin: @pin

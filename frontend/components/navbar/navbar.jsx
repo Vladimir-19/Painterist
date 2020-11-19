@@ -105,7 +105,7 @@ class NavBar extends React.Component {
                                 {/* <Link to="/" className="nav-bar-link" onClick={this.handleLogout}>
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">
-                                            <i class="fas fa-sign-out-alt"></i>
+                                            <i className="fas fa-sign-out-alt"></i>
 
                                         </div>
                                     </div>
@@ -114,7 +114,7 @@ class NavBar extends React.Component {
                                 <Link to="/" className="fas fa-sign-out-alt fa-2x" onClick={() => { this.handleLogout() }}>
                                     {/* <div className="icon-container-shadow">
                                         <div className="icon-container">
-                                            <i class="fas fa-sign-out-alt"></i>
+                                            <i className="fas fa-sign-out-alt"></i>
 
                                         </div>
                                     </div> */}

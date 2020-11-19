@@ -28,7 +28,7 @@ class DeletePinForm extends React.Component {
                         </div>
                         <div className="delete-pin cancel-link-container">
                             <a className="cancel-link" onClick={this.handleCancel}>
-                                <i class="far fa-times-circle"></i>
+                                <i className="far fa-times-circle"></i>
                             </a>
                         </div>
                     </div>
