@@ -59,6 +59,7 @@ class CreateBoardForm extends React.Component {
                                     {/* <div className="create-board" id="close-icon-container">
                                         <i className="fas fa-times create-board" id="close-icon"></i>
                                     </div> */}
+                                    uncomment me from create_board_form 
                                 </button>
                             </div>
                         </div>

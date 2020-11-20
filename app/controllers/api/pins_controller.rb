@@ -3,8 +3,9 @@ class Api::PinsController < ApplicationController
     before_action :require_user_owns_pin, only: [:update]
     
     def create
-        @pin = Pin.new(goal_param)
-        @pin.user_id = params[:user_id]
+        @pin = Pin.new(pin_params)
+        # @pin.user_id = params[:user_id]
+        @pin.user_id = current_user.id
 
         if @pin.save
             render "api/pins/show"
@@ -24,7 +25,8 @@ class Api::PinsController < ApplicationController
     end
 
     def update
-        @pin = Pin.find(params[:id])
+        # @pin = Pin.find(params[:id])
+        @pin = current_user.pins.find(params[:id])
         if @pin.update(pin_params)
             render "api/pins/show"
         else 
@@ -46,7 +48,7 @@ class Api::PinsController < ApplicationController
 
     def require_user_owns_pin
         return if current_user.pins.find_by(id: params[:id])
-        return json: "forbidden", status: :forbidden
+        render json: "forbidden", status: :forbidden
     end
 
     def pin_params

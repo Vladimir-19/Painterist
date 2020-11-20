@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
     currentUserId: state.session.id,
 });
 
-const mapDispatchToProps = disoatch => ({
+const mapDispatchToProps = dispatch => ({
     fetchSinglePin: pinId => dispatch(fetchSinglePin(pinId)),
     openEditPin: pinId => dispatch(openModal("edit-pin", pinId)),
     openNewBoardPin: pinId => dispatch(openModal("new-board-pin", pinId)),

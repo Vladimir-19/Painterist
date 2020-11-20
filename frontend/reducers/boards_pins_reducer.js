@@ -5,7 +5,7 @@ import {
     REMOVE_BOARD_PIN
 } from "../actions/board_pin_actions";
 
-const BoardPinsReucer = (oldState = {}, action) => {
+const BoardsPinsReucer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState);
 
@@ -24,4 +24,4 @@ const BoardPinsReucer = (oldState = {}, action) => {
     }
 }
 
-export default BoardPinsReucer;
+export default BoardsPinsReucer;

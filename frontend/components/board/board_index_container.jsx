@@ -1,4 +1,4 @@
-import { faRoad } from "@fortawesome/free-solid-svg-icons";
+// import { faRoad } from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
 
 import { fetchSingleUser } from "../../actions/user_actions";

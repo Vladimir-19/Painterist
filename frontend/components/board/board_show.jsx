@@ -24,7 +24,8 @@ export default class BoardShow extends Component {
 
         const secretIcon = (board.secret) ? (
             <div className="board-show visibility">
-                <i className="fas fa-lock board-show" id="lock-icon"></i>
+                {/* <i className="fas fa-lock board-show" id="lock-icon"></i> */}
+                in board show jsx
             </div>
         ) : (
                 null

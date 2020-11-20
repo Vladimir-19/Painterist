@@ -16,15 +16,15 @@ class ProfileShow extends React.Component {
         this.props.fetchAllUsers()
         .then(res => {
             const user = Object.values(res.users).find(user => user.email === email);
-            // return fetchUser(user.id);
+            return fetchUser(user.id);
             // return fetchUser(userId); not hepling
-            return fetchUser;
+            // return fetchUser; !
         });
     }
 
-    pins() {
-        const currentUserBoards = this.props.boards.filter(board => (board.userId === this.props.currentUser.id))
-    }
+    // pins() {
+    //     const currentUserBoards = this.props.boards.filter(board => (board.userId === this.props.currentUser.id))
+    // }
 
     render() {
         const { currentUser, users, email, boards, pins, openModal, closeModal } = this.props;
@@ -32,8 +32,8 @@ class ProfileShow extends React.Component {
         const user = this.props.currentUser
 
         return (
-            // <div id="profile-background">
-            <div> 
+            <div id="profile-background">
+            {/* <div>  */}
                 <div id="profile-container">
                 {/* <div>  */}
                     <div id="profile">
@@ -49,8 +49,8 @@ class ProfileShow extends React.Component {
                         <div id="profile-content-container">
                             <ProfileContent
                                 user={user}
-                                // boards={boards}
-                                // pins={pins}
+                                boards={boards}
+                                pins={pins}
                                 openModal={openModal}
                                 closeModal={closeModal}
                             />

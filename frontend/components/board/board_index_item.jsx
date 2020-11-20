@@ -1,9 +1,9 @@
-import { faRoad } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+// import { faRoad } from "@fortawesome/free-solid-svg-icons";
+// import React from "react";
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-const BoardIndexItem = ({board, pins, currentUserm, user, openEditBoard }) => {
+const BoardIndexItem = ({board, pins, currentUser, user, openEditBoard }) => {
     const numPins = board.pinIds.length;
     
     const pinA = (pins[0]) ? <img src={`${pins[0].photo}`}></img> : null;
@@ -26,7 +26,8 @@ const BoardIndexItem = ({board, pins, currentUserm, user, openEditBoard }) => {
         <div className="board-index-item container">
             <Link
                 to={{
-                    pathname: `/${user.username}/${board.title}`,
+                    // pathname: `/${user.username}/${board.title}`,
+                    pathname: `/${user.email}/${board.title}`,
                     state: {
                         fromProfile: true
                     }
