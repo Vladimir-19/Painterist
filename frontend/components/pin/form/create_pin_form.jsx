@@ -32,7 +32,8 @@ class CreatePinForm extends React.Component {
     }
 
     selectBoard(e) {
-        this.setState({ boardId: e.currentTatget.value, boardList: false});
+        // this.setState({ boardId: e.currentTatget.value, boardList: false});
+            this.setState({ boardId: e.target.value, boardList: false});
     }
 
     handleSave(e) {
@@ -57,6 +58,7 @@ class CreatePinForm extends React.Component {
             })))
             .then(() => window.history.go(-1));
     }
+
     uploadImage() {
         document.getElementById("image-upload-input").click();
     }
@@ -66,7 +68,8 @@ class CreatePinForm extends React.Component {
     }
 
     handleFile(e) {
-        const file = e.currentTarget.file[0];
+        // const file = e.currentTarget.file[0];
+        const file = e.target.files[0];
         const fileReader =  new FileReader();
         fileReader.onloadend = () => {
             this.setState({ photo: file, photoPreview: fileReader.result });
@@ -90,7 +93,7 @@ class CreatePinForm extends React.Component {
         const dropdownLabel = (this.state.boardId === null) ? (
             "Select"
         ) : (
-                boards.find(board => board.id === this.state.boardId).title
+                boards.find(board => board.id === this.state.boardId)
             );
     
         const clickSave = (this.state.boardId ===  null) ? (
@@ -193,7 +196,7 @@ class CreatePinForm extends React.Component {
                                 <div className="create-pin" id="save-button" onClick={clickSave}>
                                     <div className="create-pin" id="save-button-label">
                                         Save
-                  </div>
+                                    </div>
                                 </div>
                                 <div className={`create-pin board-list container ${klass}`}>
                                     <div className="create-pin board-list triangle">

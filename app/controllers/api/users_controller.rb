@@ -14,8 +14,8 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = Users.find(params[:id])
-    # @user = selected_user
+    # @user = User.find(params[:id])
+    @user = selected_user
     render "api/users/show"
     # render :show
   end
@@ -31,7 +31,8 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    @user = selected_user
     
     if @user.update(edit_user_params)
       render "api/users/show"
@@ -51,8 +52,8 @@ class Api::UsersController < ApplicationController
   end
 
   def selected_user
-    # User.includes(:boards, :pins, :boards_pins).find(params[:id])
-      User.includes(:pins).find(params[:id])
+    User.includes(:boards, :pins, :boards_pins).find(params[:id])
+      # User.includes(:pins).find(params[:id])
   end
   # def profile_params
   #   params.require(:user).permit(:email, :first_name, :last_name, :gender)

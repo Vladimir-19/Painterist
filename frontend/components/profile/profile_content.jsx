@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Link, NavLink } from "react-router-dom";
 
 import ProfileSwitches from "./profile_switches";
-// import BoardIndexContainer from "../board/board_index_container";
+import BoardIndexContainer from "../board/board_index_container";
 import PinIndexContainer from "../pin/pin_index_container";
 
 class ProfileContent extends React.Component {
@@ -27,20 +27,20 @@ class ProfileContent extends React.Component {
     render() {
         const { user, boards, pins, openModal, closeModal } = this.props;
 
-        // const userBoards = boards.filter(board => board.userId === user.id);
-        // const userPins = pins.filter(pin => pin.userId === user.id);
+        const userBoards = boards.filter(board => board.userId === user.id);
+        const userPins = pins.filter(pin => pin.userId === user.id);
 
         const contentTabs = [
-            // <BoardIndexContainer user={user} boards={userBoards} />,
-            // <PinIndexContainer pins={userPins} page='profile' />
+            <BoardIndexContainer user={user} boards={userBoards} />,
+            <PinIndexContainer pins={userPins} page='profile' />
         ];
         const selectedTab = contentTabs[this.state.selectedSwitch];
         const pinCount = (this.state.selectedSwitch === 1) ? (
             <div className="profile-show pin-count-container">
                 <div className="profile-show pin-count">
-                    {/* <span className="profile-show number">{userPins.length} </span> */}
+                    <span className="profile-show number">{userPins.length} </span>
                     Pins
-        </div>
+                 </div>
             </div>
         ) : null;
 

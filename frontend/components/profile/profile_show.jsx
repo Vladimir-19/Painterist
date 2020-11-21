@@ -10,6 +10,8 @@ class ProfileShow extends React.Component {
     }
 
     componentDidMount() {
+        // this.props.fetchBoards()
+        // this.props.fetchPins().then(() => this.setState({ pins: 'fetched', loading: false }))
         const email = this.props.match.params.email;
         const fetchUser = (userId) => this.props.fetchSingleUser(userId);
 
@@ -18,7 +20,7 @@ class ProfileShow extends React.Component {
             const user = Object.values(res.users).find(user => user.email === email);
             return fetchUser(user.id);
             // return fetchUser(userId); not hepling
-            // return fetchUser; !
+            // return fetchUser; 
         });
     }
 
@@ -28,8 +30,8 @@ class ProfileShow extends React.Component {
 
     render() {
         const { currentUser, users, email, boards, pins, openModal, closeModal } = this.props;
-        // const user = users.find(user => user.email === email);
-        const user = this.props.currentUser
+        const user = users.find(user => user.email === email);
+        // const user = this.props.currentUser
 
         return (
             <div id="profile-background">
