@@ -1,3 +1,4 @@
+import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
 class CreatePinForm extends React.Component {
@@ -5,7 +6,7 @@ class CreatePinForm extends React.Component {
         super(props);
         this.state = Object.assign({}, this.props.pin, {
             photoPreview: null,
-            boardId: null,
+            boardId: 0,
             boardList: false
         });
 
@@ -32,8 +33,9 @@ class CreatePinForm extends React.Component {
     }
 
     selectBoard(e) {
-        // this.setState({ boardId: e.currentTatget.value, boardList: false});
-            this.setState({ boardId: e.target.value, boardList: false});
+        this.setState({ boardId: e.currentTarget.value, boardList: false});
+            // this.setState({ boardId: e.target.value, boardList: false});
+        // this.setState({selectBoard: board.title, currentBoard: board.id})
     }
 
     handleSave(e) {
@@ -68,8 +70,8 @@ class CreatePinForm extends React.Component {
     }
 
     handleFile(e) {
-        // const file = e.currentTarget.file[0];
-        const file = e.target.files[0];
+        const file = e.currentTarget.files[0]; 
+        // const file = e.target.files[0];
         const fileReader =  new FileReader();
         fileReader.onloadend = () => {
             this.setState({ photo: file, photoPreview: fileReader.result });
@@ -85,7 +87,7 @@ class CreatePinForm extends React.Component {
             e => this.setState({ [field]: e.currentTarget.value })
         );
     }
-
+    
     render() {
         const { currentUser, boards, errors, formType } = this.props;
 
@@ -93,6 +95,7 @@ class CreatePinForm extends React.Component {
         const dropdownLabel = (this.state.boardId === null) ? (
             "Select"
         ) : (
+                // boards.find(board => board.id === this.state.boardId).title
                 boards.find(board => board.id === this.state.boardId)
             );
     
@@ -104,7 +107,7 @@ class CreatePinForm extends React.Component {
 
         const boardListItems = (boards.length > 0) ? (
             boards.map(board => {
-                const firstPinImage = (board.firstPinImage !== undefined) ? (
+                const firstPinImage = (board.firstPin !== undefined) ? (
                     <img src={`${board.firstPin.photo}`}
                         className="board-li pin-photo" />
                 ) : (

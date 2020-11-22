@@ -1,11 +1,9 @@
 #json.partials! "api/pins/pin", pin: @pin 
 
-json.set! @pin.id do
+json.set! @pin do
   json.partial! "api/pins/pin", pin: @pin
   json.boardTitle @pin.boards.pluck(:title)[0]
-  json.boardTitle @pin.pluck(:title)[0]
   json.user do
     json.partial! "api/users/user", user: @pin.user
-    json.partial! "api/users/user"
   end
 end

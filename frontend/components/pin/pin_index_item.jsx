@@ -53,12 +53,13 @@ class PinIndexItem extends React.Component {
         );
 
         const pinUrl = pin.url;
-        const shortPinUrl = pinUrl.slice(12, 22) + "...";
+        // const shortPinUrl = pinUrl.slice(12, 22) + "...";
         const pinLink = (pinUrl !== '') ? (
             <a href={`${pinUrl}`} target="_blank" className="pin-index-item pin-link">
                 <i className="fas fa-external-link-alt pin-link-icon"></i>
                 <div className="pin-index-item pin-link-text">
-                    {shortPinUrl}
+                    {/* {shortPinUrl} */}
+                    {pinUrl}
                 </div>
             </a>
         ) : null;

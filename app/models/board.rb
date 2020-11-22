@@ -16,5 +16,6 @@ class Board < ApplicationRecord
     source: :pin,
     dependent: :destroy
 
+
     
 end
