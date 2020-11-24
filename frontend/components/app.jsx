@@ -1,4 +1,5 @@
 import React from 'react';
+
 // import { connect, Provider } from 'react-redux';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
@@ -28,18 +29,18 @@ const App = () => (
         </header>
         {/* <h1>i'm from app.jsx</h1> */}
         <Switch>
-            <ProtectedRoute exact path="/pin-builder" component={CreatePinFormContainer}/>
-            <ProtectedRoute exact path="/pin/:pinId" component={PinShowContainer}/>
+            {/* <ProtectedRoute exact path="/pin-builder" component={CreatePinFormContainer}/>
+            <ProtectedRoute exact path="/pin/:pinId" component={PinShowContainer}/> */}
             <ProtectedRoute exact path="/settings" component={EditProfileFormContainer}/>
             <ProtectedRoute exact path="/following" component={HomeContainer} />
             <ProtectedRoute exact path="/:username/pins" component={ProfileShowContainer} />
             <ProtectedRoute exact path="/:username/boards" component={ProfileShowContainer} />
             <ProtectedRoute exact path="/:username" component={ProfileShowContainer} />
-            <ProtectedRoute exact path="/:username/:boardTitle" component={BoardShowContainer}/>
+            {/* <ProtectedRoute exact path="/:username/:boardTitle" component={BoardShowContainer}/> */}
             {/* <Route exact path="/" component={SplashContainer} /> */}
             <Route exact path="/" component={HomeContainer} />
         </Switch>
-
+            
         {/* <Switch>
             <Route path="/login">
                 <h2>one of us</h2>

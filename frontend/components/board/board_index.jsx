@@ -1,4 +1,4 @@
-import { faRoad } from "@fortawesome/free-solid-svg-icons";
+// import { faRoad } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from 'react';
 import BoardIndexItem from "./board_index_item";
 

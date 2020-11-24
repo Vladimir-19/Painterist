@@ -11,9 +11,9 @@ import ui from './ui_reducer';
 
 const rootReducer = combineReducers({
     entities,
-    session,
+    ui,
     errors,
-    ui
+    session
 });
 
 export default rootReducer;

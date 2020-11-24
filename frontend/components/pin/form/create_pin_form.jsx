@@ -471,7 +471,7 @@ class CreatePinForm extends React.Component {
                                 <div className="create-pin" id="save-button" onClick={clickSave}>
                                     <div className="create-pin" id="save-button-label">
                                         Save
-                  </div>
+                                    </div>
                                 </div>
                                 <div className={`create-pin board-list container ${klass}`}>
                                     <div className="create-pin board-list triangle">
@@ -482,7 +482,7 @@ class CreatePinForm extends React.Component {
                                     <div className="create-pin board-list header">
                                         <div className="create-pin board-list title">
                                             All boards
-                    </div>
+                                        </div>
                                     </div>
                                     <ul className="create-pin board-list">
                                         {boardListItems}

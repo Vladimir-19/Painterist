@@ -15,12 +15,13 @@ class Api::PinsController < ApplicationController
 
     def show
         @pin = Pin.find(params[:id])
-        render "api/pins//show"
+        # render "api/pins//show"
+        return :show
     end
 
     def index
         @pins = Pin.all 
-        render "api/pins/index"
+        render "api/pins/show"
     end
 
     def update
@@ -52,7 +53,7 @@ class Api::PinsController < ApplicationController
 
     def pin_params
         # params.require(:pin).permit(:id, :title, :description, :url, :photo, :user_id)
-        params.require(:pin).permit(:id, :title, :description, :url, :photo, :user_id)
-        # params.require(:pin).permit(:title, :description, :url, :photo, :user_id)
+        params.require(:pin).permit(:id, :title, :photo, :user_id)
+
     end
 end
