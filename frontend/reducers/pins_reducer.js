@@ -45,6 +45,7 @@ import {
 
 const PinsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
+    console.log(action)
     let nextState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_SINGLE_USER:

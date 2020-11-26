@@ -295,6 +295,7 @@ class CreatePinForm extends React.Component {
     }
 
     componentDidMount() {
+        // console.log(state)
         this.props.fetchBoards();
     }
 
@@ -311,11 +312,14 @@ class CreatePinForm extends React.Component {
     }
 
     selectBoard(e) {
+        // console.log(state)
         this.setState({ boardId: e.currentTarget.value, boardList: false });
     }
 
     handleSave(e) {
-        e.stopPropagation();
+        // console.log(state)
+        // e.stopPropagation();
+        e.preventDefault();
         const details = Object.assign({}, this.state);
         delete details["photoPreview"];
         delete details["board"];

@@ -35,8 +35,8 @@ class BoardShowNavBar extends React.Component {
     render() {
         const { openEditBoard, board, user } = this.props;
         const transition = (this.state.fadeInTitle) ? "in" : "out";
-        // const klass = (location.hash.includes(user.username)) ? "show" : "hide";
-        const klass = (location.hash.includes(user.email)) ? "show" : "hide";
+        const klass = (location.hash.includes(user.username)) ? "show" : "hide";
+        // const klass = (location.hash.includes(user.email)) ? "show" : "hide";
 
         return (
             <div className="board-show navbar">
@@ -57,8 +57,8 @@ class BoardShowNavBar extends React.Component {
                 </div>
                 <div className="board-show profile-button-container">
                     <Link
-                        // to={`/${user.username}`}
-                        to={`/${user.email}`}
+                        to={`/${user.username}`}
+                        // to={`/${user.email}`}
                         className="board-show profile-button">
                             <img src={user.photo} className="board-show profile-photo"/>
                     </Link>

@@ -19,15 +19,15 @@ const BoardIndexItem = ({board, pins, currentUser, user, openEditBoard }) => {
         </div>
     ) : null;
 
-    // const klass = (currentUser.username === user.username) ? "show" : "hide";
-    const klass = (currentUser.email === user.email) ? "show" : "hide";
+    const klass = (currentUser.username === user.username) ? "show" : "hide";
+    // const klass = (currentUser.email === user.email) ? "show" : "hide";
 
     return (
         <div className="board-index-item container">
             <Link
                 to={{
-                    // pathname: `/${user.username}/${board.title}`,
-                    pathname: `/${user.email}/${board.title}`,
+                    pathname: `/${user.username}/${board.title}`,
+                    // pathname: `/${user.email}/${board.title}`,
                     state: {
                         fromProfile: true
                     }

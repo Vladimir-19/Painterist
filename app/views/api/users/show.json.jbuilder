@@ -1,21 +1,4 @@
-#json.partial! "api/users/user", user: @user
-
-on.users do
-  json.set! @user.id do
-    json.partial! "api/users/user", user: @user
-    json.boardIds @user.boards.pluck(:id)
-    # json.pinIds @user.pins.pluck(:id)
-  end
-end
-
-json.boards do
-  @user.boards.each do |board|
-    json.set! board.id do
-      json.partial! "api/boards/board", board: board
-      json.pinIds board.pins.pluck(:id)
-    end
-  end
-end
+json.partial! "api/users/user", user: @user
 
 json.boardsPins do
   @user.boards_pins.each do |boardPin|
@@ -32,7 +15,3 @@ json.pins do
     end
   end
 end
-
-# json.follows do
-
-# end

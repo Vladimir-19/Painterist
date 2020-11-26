@@ -7,3 +7,5 @@
     #json.partial! "api/users/user", user: @pin.user
   #end
 #end
+
+json.pins @pins

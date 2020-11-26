@@ -68,7 +68,9 @@ export default ProfileContent;
 ProfileContent.defaultProps = {
     user: {
         email: '',
+        username: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        pin: ''
     }
 }

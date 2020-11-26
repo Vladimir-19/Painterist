@@ -1,6 +1,6 @@
 class Api::PinsController < ApplicationController
 
-    before_action :require_user_owns_pin, only: [:update]
+    #before_action :require_user_owns_pin, only: [:update]
     
     def create
         @pin = Pin.new(pin_params)
@@ -15,8 +15,8 @@ class Api::PinsController < ApplicationController
 
     def show
         @pin = Pin.find(params[:id])
-        # render "api/pins//show"
-        return :show
+        render "api/pins//show"
+        # return :show
     end
 
     def index
@@ -52,8 +52,8 @@ class Api::PinsController < ApplicationController
     end
 
     def pin_params
-        # params.require(:pin).permit(:id, :title, :description, :url, :photo, :user_id)
-        params.require(:pin).permit(:id, :title, :photo, :user_id)
+        params.require(:pin).permit(:id, :title, :description, :url, :photo, :user_id)
+        #params.require(:pin).permit(:id, :title, :photo, :user_id)
 
     end
 end

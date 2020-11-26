@@ -5,15 +5,14 @@ import RootReducer from '../reducers/root_reducer';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-const middleweares = [thunk];
 
-if (process.env.NODE_ENV !== "production") middleweares.push(logger);
+// if (process.env.NODE_ENV !== "production") thunk.push(logger);
 
 const configureStore = (preloadedState = {}) => (// preloadedState is for initialize state 
     createStore(
         RootReducer,
          preloadedState,
-         applyMiddleware(...middleweares)
+         applyMiddleware(thunk)
         //  compose(
         //     applyMiddleware(thunk, logger),
         //     //  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

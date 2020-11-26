@@ -106,7 +106,7 @@ class CreateBoardPinForm extends React.Component {
     }
 
     render() {
-        // debugger;
+        debugger;
         const { currentUserId, pin, allBoards, closeModal } = this.props;
         const boards = allBoards.filter(board => board.userId === currentUserId);
         const boardListItems = boards.map(board => {
