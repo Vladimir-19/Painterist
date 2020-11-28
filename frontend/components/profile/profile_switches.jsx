@@ -8,7 +8,8 @@ const ProfileSwitches = ({ user, selectedSwitch, onSwitchClick, tabs }) => {
         return (idx === 0) ? (
             <NavLink
                 key={idx}
-                to={`/${user.email}/${label.toLowerCase()}`}
+                // to={`/${user.email}/${label.toLowerCase()}`}
+                to={`/${user.username}/${label.toLowerCase()}`}
                 isActive={() => {
                     if (!location.hash.includes("/pins")) {
                         return true;

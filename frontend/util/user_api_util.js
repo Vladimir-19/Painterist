@@ -5,12 +5,6 @@ export const fetchAllUsers = () => (
     })
 );
 
-// export const showProfile = userId => {
-//     $.ajax({
-//         method: 'GET',
-//         url: `/api/users/${userId}`
-//     })
-// }
 export const fetchSingleUser = (id) => (
     $.ajax({
         method: "GET",
@@ -18,13 +12,6 @@ export const fetchSingleUser = (id) => (
     })
 );
 
-// export const updateProfile = user => {
-//     $.ajax({
-//         method: 'PATCH',
-//         url: `/api/user/${user.id}`,
-//         data: { user }
-//     })
-// }
 export const updateUser = (user, id) => (
     $.ajax({
         method: "PATCH",

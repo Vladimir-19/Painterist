@@ -48,7 +48,7 @@ class User < ApplicationRecord
   end
 
   # def parse_email
-  #   self.username ||= self.email.split("@")[0]
+  #   self.email ||= self.email.split("@")[0]
   # end
 
 end

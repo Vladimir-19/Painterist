@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
   def show
     # @user = User.find(params[:id])
     @user = selected_user
-    render "api/users/show"
+    # render "api/users/show"
     # render :show
   end
 

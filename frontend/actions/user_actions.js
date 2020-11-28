@@ -26,7 +26,7 @@ export const fetchAllUsers = () => dispatch => (
 
 export const fetchSingleUser = id => dispatch => (
     UserAPIUtil.fetchSingleUser(id)
-        .then(payload => dispatch(receiveAllUsers(payload)))
+        .then(payload => dispatch(receiveSingleUser(payload)))
 );
 
 export const updateUser = (user, id) => dispatch => (
