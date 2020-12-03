@@ -83,13 +83,16 @@
 
 // export default CreateBoardPinForm;
 import React from "react";
+import { Link } from 'react-router-dom';
+
 
 class CreateBoardPinForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            pin_id: this.props.pin.id,
-            board_id: null
+            // pin_id: this.props.pin.id,
+            // board_id: null
+            message: false
         };
         this.handleSave = this.handleSave.bind(this);
     }
@@ -112,34 +115,45 @@ class CreateBoardPinForm extends React.Component {
 
     render() {
         // debugger;
-        const { currentUserId, pin, allBoards, closeModal } = this.props;
-        const boards = allBoards.filter(board => board.userId === currentUserId);
-        const boardListItems = boards.map(board => {
-            const firstPinPhoto = (board.firstPin !== undefined) ? (
-                <img src={board.firstPin.photo} className="board-list-item photo" />
+        // const { currentUserId, pin, allBoards, closeModal } = this.props;
+        const { currentUse,  boards } = this.props;
+
+        // const boards = boards.filter(board => board.userId === currentUse.id);
+        const currentUserBoards = boards.filter(board => board.userId === currentUse.id);
+        // const boardListItems = boards.map(board => {
+        //     const firstPinPhoto = (board.firstPin !== undefined) ? (
+        //         <img src={board.firstPin.photo} className="board-list-item photo" />
+        //     ) : null;
+
+        //     return (
+        //         <li
+        //             key={board.id}
+        //             className="create-board-pin board-list-item"
+        //             value={board.id}
+        //             onClick={this.handleSave}
+        //         >
+        //             <div className="board-list-item photo-container">
+        //                 {firstPinPhoto}
+        //             </div>
+        //             <div className="board-list-item title">
+        //                 {board.title}
+        //             </div>
+        //             <div className="board-list-item save-button">
+        //                 <i className="fas fa-thumbtack save-icon"></i>
+        //                 <div className="save-text">&nbsp;Save</div>
+        //             </div>
+        //         </li>
+        //     )
+        // })
+
+        const success =
+            this.state.message === true ? (
+                <h3 className="pin-board-success">
+                    Successfully saved to your board!
+                </h3>
             ) : null;
 
-            return (
-                <li
-                    key={board.id}
-                    className="create-board-pin board-list-item"
-                    value={board.id}
-                    onClick={this.handleSave}
-                >
-                    <div className="board-list-item photo-container">
-                        {firstPinPhoto}
-                    </div>
-                    <div className="board-list-item title">
-                        {board.title}
-                    </div>
-                    <div className="board-list-item save-button">
-                        <i className="fas fa-thumbtack save-icon"></i>
-                        <div className="save-text">&nbsp;Save</div>
-                    </div>
-                </li>
-            )
-        })
-
+            if (board.length > 0) { 
         return (
             <div className="create-board-pin container">
                 <div className="create-board-pin header">
@@ -159,12 +173,23 @@ class CreateBoardPinForm extends React.Component {
                     </div>
                     <div className="create-board-pin second-half">
                         <ul className="create-board-pin board-list">
-                            {boardListItems}
+                            {/* {boardListItems} */}
+                            {currentUserBoards.map((board) => (
+                                <li key={board.id}>
+                                    {board.title}
+                                    <button
+                                        className="pinboard-button"
+                                        onClick={this.handleSave}
+                                    >
+                                        Save
+                                    </button>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
             </div>
-        );
+        );} else { return null;}
     }
 }
 

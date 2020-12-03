@@ -306,10 +306,10 @@ export default class CreatePin extends React.Component {
         this.handleButton = this.handleButton.bind(this);
     }
 
-    // componentDidMount() {
-    //     this.props.fetchBoards();
-    //     this.props.fetchPins();
-    // }
+    componentDidMount() {
+        this.props.fetchBoards();
+        this.props.fetchPins();
+    }
 
 
 

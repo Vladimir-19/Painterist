@@ -17,11 +17,11 @@
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CreateBoardForm);
 import { connect } from "react-redux";
-import React from "react";
+// import React from "react";
 
 import { createBoard } from "../../../actions/board_actions";
 import { fetchPins } from "../../../actions/pin_actions";
-import { fetchBoards } from "../../../actions/board_actions";
+// import { fetchBoards } from "../../../actions/board_actions";
 import { openModal, closeModal } from "../../../actions/modal_actions";
 import CreateBoardForm from "./create_board_form";
 import { fetchBoard } from "../../../util/board_api_util";
@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
     processForm: board => dispatch(createBoard(board)), //error???
     closeModal: () => dispatch(closeModal()),
     fetchPins: () => dispatch(fetchPins()),
-    fetchBoards: () => dispatch(fetchBoards())
+    fetchBoard: () => dispatch(fetchBoard())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateBoardForm);
