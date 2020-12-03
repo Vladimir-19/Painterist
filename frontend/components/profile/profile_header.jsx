@@ -31,6 +31,7 @@ export default ProfileHeader;
 
 ProfileHeader.defaultProps = {
     user: {
+        // username: '',
         email: '',
         firstName: '',
         lastName: ''

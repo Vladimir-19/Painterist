@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 
   validates :email, :age, :password_digest, :session_token, presence: true
-  validates :email, :session_token, uniqueness: true
+  validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validates :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
   
   validates :first_name, :last_name, length: { maximum: 30 }
@@ -10,6 +11,7 @@ class User < ApplicationRecord
   
 
   after_initialize :ensure_session_token  #:parse_email
+  before_validation :ensure_session_token_uniqueness
 
   attr_reader :password 
 
@@ -19,6 +21,11 @@ class User < ApplicationRecord
   has_many :boards_pins,
     through: :boards,
     source: :boards_pins
+
+  def data
+    keys = ['id', 'email', 'description', 'photo']
+    User.extract_by_keys(self.as_json, keys)
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
@@ -43,10 +50,19 @@ class User < ApplicationRecord
 
   private
 
+  def new_session_token
+    SecureRandom.urlsafe_base64
+  end
+
   def ensure_session_token
     self.session_token ||= SecureRandom.base64(64)
   end
 
+  def ensure_session_token_uniqueness
+    while User.find_by(session_token: self.session_token)
+      self.session_token = new_session_token
+    end
+  end
   # def parse_email
   #   self.email ||= self.email.split("@")[0]
   # end

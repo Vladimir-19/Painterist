@@ -21,39 +21,53 @@ class Api::PinsController < ApplicationController
 
     def index
         @pins = Pin.all 
-        render "api/pins/show"
+        render "api/pins/index"
     end
 
     def update
         # @pin = Pin.find(params[:id])
-        @pin = current_user.pins.find(params[:id])
+        # @pin = current_user.pins.find(params[:id])
+        # if @pin.update(pin_params)
+        #     render "api/pins/show"
+        # else 
+        #     render json: ["Can't edit this pin!"], status: 401
+        # end
+         @pin = Pin.find(params[:id])
+    
         if @pin.update(pin_params)
-            render "api/pins/show"
-        else 
-            render json: ["Can't edit this pin!"], status: 401
+        render "api/pins/show"
+        else
+        render json: @pin.errors.full_messages, status: 422
         end
     end
 
     def destroy
-        @pin = current_user.pins.find(params[:id])
-        if @pin
-            @pin.destroy
-            render "api/pins/show"
-        else 
-            render json: ["Can't edit this pin!"], status: 401
+        # @pin = current_user.pins.find(params[:id])
+        # if @pin
+        #     @pin.destroy
+        #     render "api/pins/show"
+        # else 
+        #     render json: ["Can't edit this pin!"], status: 401
+        # end
+         @pin = current_user.pins.find_by(id: params[:id])
+
+        if @pin && @pin.destroy
+        render "api/pins/show"
+        else
+        render json: ["You can only delete your own pin"], status: 422
         end
     end
 
     private 
 
-    def require_user_owns_pin
-        return if current_user.pins.find_by(id: params[:id])
-        render json: "forbidden", status: :forbidden
-    end
+    # def require_user_owns_pin
+    #     return if current_user.pins.find_by(id: params[:id])
+    #     render json: "forbidden", status: :forbidden
+    # end
 
     def pin_params
-        params.require(:pin).permit(:id, :title, :description, :url, :photo, :user_id)
-        #params.require(:pin).permit(:id, :title, :photo, :user_id)
+        # params.require(:pin).permit(:title, :description, :url, :photo, :user_id)
+        params.require(:pin).permit(:title, :description, :source_link, :photo)
 
     end
 end

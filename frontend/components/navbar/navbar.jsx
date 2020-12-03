@@ -1,24 +1,45 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-import { openModal, closeModal } from '../../actions/modal_actions';
-import { HomeNavItems } from './navbar_container';
-
 import { Link, NavLink } from 'react-router-dom';
 import { logoutUser } from '../../actions/session_actions';
-
-import { Route, Redirect, Switch, HashRouter } from 'react-router-dom';
-import SplashContainer from '../splash_page/splash_container'
 
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = {
-            //    cearchWord: ""
-        // }
+        this.state = {
+            searchWord: ""
+        };
 
-        // this.handleLogout = this.handleLogout.bind(this);
+        // this.logEmOut = this.logEmOut.bind(this);
+        this.currentUser = this.props.currentUser;
+
     }
+
+    componentWillReceiveProps(nextProps) {
+        if (!nextProps.currentUser) {
+            this.props.router.push("/login");
+        }
+    }
+
+
+    componentDidMount() {
+        // this.props.fetchAllUaers();
+        $('.search-bar').on('keyup', e => this.onKeyUp(e))
+    }
+    omKeyUp(e) {
+        e.preventDefault();
+        if (e.key !== "Enter") {
+            this.setState({ searchWord: e.currentTarget.value });
+            this.props.fetchSearchPins(this.state.searchWord);
+            this.props.router.push('/search');
+        } else {
+            $('.search-bar').val('');
+            this.setState({ searchWord: "" });
+        }
+    }
+    // componentWillUnmount() {
+    //     location.reload(falce);
+    // }
 
     handleLogout() {
         this.props.logout().then(this.props.openModal('login'));
@@ -68,7 +89,7 @@ class NavBar extends React.Component {
                             </div> */}
 
                             <div className='icon-wrapper'>
-                                <Link to={`/${currentUser.email}`} className="nav-bar-link">
+                                <Link to={`/${this.currentUser.email}`} className="nav-bar-link">
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">
                                             <div id="profile-icon-frame">

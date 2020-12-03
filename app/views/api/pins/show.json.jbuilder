@@ -1,4 +1,4 @@
-#json.partials! "api/pins/pin", pin: @pin 
+json.partial! "api/pins/pin", pin: @pin
 
 #json.set! @pin.id do
   #json.partial! "api/pins/pin", pin: @pin
@@ -8,4 +8,4 @@
   #end
 #end
 
-json.pins @pins
+#json.pins @pins

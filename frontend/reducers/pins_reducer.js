@@ -34,34 +34,27 @@
 
 // export default PinsReducer;
 
-import { RECEIVE_SINGLE_USER } from "../actions/user_actions";
-import { RECEIVE_BOARD } from "../actions/board_actions";
 import {
-    RECEIVE_PINS,
     RECEIVE_PIN,
-    REMOVE_PIN,
-    RECEIVE_PIN_ERRORS
+    RECEIVE_PINS,
+    REMOVE_PIN
 } from '../actions/pin_actions';
 
-const PinsReducer = (oldState = {}, action) => {
-    Object.freeze(oldState);
-    console.log(action)
-    let nextState = Object.assign({}, oldState);
+const PinReducer = (state = {}, action) => {
+    Object.freeze(state);
+
     switch (action.type) {
-        case RECEIVE_SINGLE_USER:
-            return Object.assign(nextState, action.payload.pins);
-        case RECEIVE_BOARD:
-            return Object.assign(nextState, action.payload.pins);
-        case RECEIVE_PINS:
-            return action.pins;
         case RECEIVE_PIN:
-            return Object.assign(nextState, action.pin);
+            return { [action.pin.id]: action.pin }
+        case RECEIVE_PINS:
+            return Object.assign({}, state, action.pins)
         case REMOVE_PIN:
-            delete nextState[action.pinId];
-            return nextState;
+            let newState = Object.assign({}, state);
+            delete newState[action.pinId];
+            return newState;
         default:
-            return oldState;
+            return state;
     }
 }
 
-export default PinsReducer;
+export default PinReducer;

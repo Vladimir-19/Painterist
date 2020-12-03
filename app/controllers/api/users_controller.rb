@@ -1,23 +1,29 @@
 class Api::UsersController < ApplicationController
     
-  
+   def new
+    @user_application = UserApplication.new
+    @user = User.find(params[:user_id])
+  end
+
   def create
     @user = User.new(user_params)
 
     if @user.save
       login(@user)
-      # redirect_to "api/users"
-      render "api/users/show"
+      render 'api/users/show'
     else
       render json: @user.errors.full_messages, status: 422
+      # @user = User.find(arams[:user_d])
+      # render new 
     end
   end
 
   def show
-    # @user = User.find(params[:id])
-    @user = selected_user
+    # @user = selected_user
     # render "api/users/show"
-    # render :show
+    # @user = User.find_by(email: params[:id])
+    @user = user.data
+    render :show
   end
 
   def index 
@@ -48,7 +54,7 @@ class Api::UsersController < ApplicationController
   end
 
    def edit_user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :description, :location, :photo)
+    params.require(:user).permit(:first_name, :last_name, :email, :username, :description, :location, :photo)
   end
 
   def selected_user
