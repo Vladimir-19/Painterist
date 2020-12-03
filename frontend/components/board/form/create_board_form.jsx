@@ -176,18 +176,37 @@ import React from "react";
 class CreateBoardForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.board;
+        // this.state = this.props.board;
+        this.state = {
+            title: '',
+            description: ''
+        }
 
         this.update = this.update.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
+        this.rendereErrors = this.rendereErrors.bind(this);
     }
 
     update(e) {
-        this.setState({ "title": e.currentTarget.value });
+        // this.setState({ "title": e.currentTarget.value });
+        this.setState({[field]: e.currentTarget.value})
     }
 
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li className="session-errors"
+                        key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+    
     handleCheck() {
         this.setState({ "secret": !this.state.secret });
         const checkbox = document.getElementById('visibility-checkbox');
@@ -204,13 +223,15 @@ class CreateBoardForm extends React.Component {
     }
 
     handleCreate(e) {
-        e.preventDefault();
-        this.props.processForm(this.state)
-            .then(this.props.closeModal);
+        // e.preventDefault();
+        // this.props.processForm(this.state)
+        //     .then(this.props.closeModal);
+        const board = Object.assign({}, this.state)
+        this.props.createBoard(board).then((this.props.closeModal) && window.location.reload());
     }
 
     render() {
-        const { errors, formType } = this.props;
+        // const { errors, formType } = this.props;
         const checked = (this.state.secret) ? 'checked' : null;
 
         return (

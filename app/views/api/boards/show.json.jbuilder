@@ -13,4 +13,9 @@
   #end
 #end
 
-json.board @baord
+json.set! @board.id do 
+    json.extract! @board, :id, :title, :description, :secret
+    json.userId @board.user_id
+    json.pinIds @board.pins.pluck(:id)
+    json.pins @board.pins
+end

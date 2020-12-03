@@ -6,8 +6,9 @@
 #json.extract! user, :id, :first_name, :last_name, :email, :location, :description, :pins, :boards
 #json.extract! user, :id, :first_name, :last_name, :email, :location, :description, :pins, :boards
 
- json.user user.id
- json.firstName user.first_name
- json.lastName user.last_name 
+# NOT MY
+ #json.user user.id
+ #json.firstName user.first_name
+ #json.lastName user.last_name 
 
 json.photo url_for(user.photo) if user.photo.attached?

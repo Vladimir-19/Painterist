@@ -66,7 +66,7 @@ import * as BoardAPIUtil from "../util/board_api_util";
 export const RECEIVE_BOARDS = "RECEIVE_BOARDS";
 export const RECEIVE_BOARD = "RECEIVE_BOARD";
 export const REMOVE_BOARD = "REMOVE_BOARD";
-export const RECEIVE_BOARD_ERRORS = "RECEIVE_BOARD_ERRORS";
+export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 
 // action creators
 const receiveBoards = boards => ({
@@ -74,9 +74,9 @@ const receiveBoards = boards => ({
     boards
 });
 
-const receiveBoard = payload => ({
+const receiveBoard = board => ({
     type: RECEIVE_BOARD,
-    payload
+    board
 });
 
 const removeBoard = boardId => ({
@@ -85,28 +85,34 @@ const removeBoard = boardId => ({
 });
 
 const receiveBoardErrors = errors => ({
-    type: RECEIVE_BOARD_ERRORS,
+    type: RECEIVE_SESSION_ERRORS,
     errors
 });
 
 // thunk action creators
-export const fetchBoards = () => dispatch => (
-    BoardAPIUtil.fetchBoards().then(
+export const fetchBoards = () => dispatch => { 
+    return BoardAPIUtil.fetchBoards().then(
         boards => dispatch(receiveBoards(boards))
     )
-);
+};
 
-export const fetchBoard = boardId => dispatch => (
-    BoardAPIUtil.fetchBoard(boardId).then(
-        payload => dispatch(receiveBoard(payload))
+export const fetchBoard = boardId => dispatch => { 
+    return BoardAPIUtil.fetchBoard(boardId).then(
+        board => dispatch(receiveBoard(board))
     )
-);
+};
 
+// export const createBoard = board => dispatch => (
+//     BoardAPIUtil.createBoard(board).then(
+//         board => dispatch(receiveBoard(board)),
+//         err => dispatch(receiveBoardErrors(err.responseJSON))
+//     )
+// );
 export const createBoard = board => dispatch => (
-    BoardAPIUtil.createBoard(board).then(
-        board => dispatch(receiveBoard(board)),
-        err => dispatch(receiveBoardErrors(err.responseJSON))
-    )
+    BoardAPIUtil.createBoard(board).then(board => (dispatch(receiveBoard(board))
+    ), err => (
+        dispatch(receiveSessionErrors(err.responseJSON))
+    ))
 );
 
 export const updateBoard = board => dispatch => (

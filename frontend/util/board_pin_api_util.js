@@ -22,7 +22,7 @@
 export const pinToBoard = (boardPin) => {
     return $.ajax({
         method: 'POST',
-        url: '/api/joinspinsboards',
+        url: '/api/boardpin',
         data: { boardPin: { pin_id: boardPin.pinId, board_id: boardPin.boardId } }
     })
 };
@@ -30,7 +30,7 @@ export const pinToBoard = (boardPin) => {
 export const deletePinOnBoard = (boardPin) => {
     return $.ajax({
         method: 'DELETE',
-        url: '/api/joinspinsboards/4',
+        url: '/api/boardpin/4',
         data: { boardPin }
     })
 };
