@@ -6,39 +6,46 @@ import { logoutUser } from '../../actions/session_actions';
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            searchWord: ""
-        };
+        // this.handleLogout = this.handleLogout.bind(this);
+        // this.state = {
+        //     searchWord: ""
+        // };
 
         // this.logEmOut = this.logEmOut.bind(this);
-        this.currentUser = this.props.currentUser;
-
+        // this.currentUser = this.props.currentUser;
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (!nextProps.currentUser) {
-            this.props.router.push("/login");
-        }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     if (!nextProps.currentUser) {
+    //         this.props.router.push("/login");
+    //     }
+    // }
 
-
-    componentDidMount() {
-        // this.props.fetchAllUaers();
-        $('.search-bar').on('keyup', e => this.onKeyUp(e))
-    }
-    omKeyUp(e) {
-        e.preventDefault();
-        if (e.key !== "Enter") {
-            this.setState({ searchWord: e.currentTarget.value });
-            this.props.fetchSearchPins(this.state.searchWord);
-            this.props.router.push('/search');
-        } else {
-            $('.search-bar').val('');
-            this.setState({ searchWord: "" });
-        }
-    }
+    // componentDidMount() {
+    //     // this.props.fetchAllUaers();
+    //     $('.search-bar').on('keyup', e => this.onKeyUp(e))
+    // }
+    // omKeyUp(e) {
+    //     e.preventDefault();
+    //     if (e.key !== "Enter") {
+    //         this.setState({ searchWord: e.currentTarget.value });
+    //         this.props.fetchSearchPins(this.state.searchWord);
+    //         this.props.router.push('/search');
+    //     } else {
+    //         $('.search-bar').val('');
+    //         this.setState({ searchWord: "" });
+    //     }
+    // }
     // componentWillUnmount() {
     //     location.reload(falce);
+    // }
+
+    // componentDidMount() {
+    //     this.props.fetchAllUsers();
+    // }
+
+    // componentWillUnmount() {
+    //     location.reload(true);
     // }
 
     handleLogout() {
@@ -53,14 +60,13 @@ class NavBar extends React.Component {
         const profilePhoto = ((currentUser) && (currentUser.photoUrl)) ? (
             <img className="nav-profile-image" src={currentUser.photoUrl} />
         ) : (
-                <i className="far fa-user-circle" id="profile-icon" style={{ "fontSize": "23px", "color": "#8e8e8e"}}></i>
+                <i className="far fa-user-circle" id="profile-icon"
+                 style={{ "fontSize": "23px", "color": "#8e8e8e"}}></i>
             );
 
         if (currentUser) {
             return (
-                
                 <div className="nav-container">
-
                     <ul className="nav-ul">
                         <li className="nav-lis">
                             <a key="1" className="nav-link-home-logo" href="#"></a>
@@ -72,12 +78,6 @@ class NavBar extends React.Component {
                                             Following
                                         </div>
                                 </NavLink>
-                            
-                            <div className="nav-bar-search-container" id="search">
-                                {/* SearchContainer */}
-                                <h6>i'm a search bar insode of nav bar</h6>
-                            </div>
-                            
                             {/* <div className="nav-bar-button" id="following">
                                 <NavLink to="/following" className="nav-bar-link">
                                     <div className="icon-container-shadow">
@@ -86,10 +86,17 @@ class NavBar extends React.Component {
                                         </div>
                                     </div>
                                 </NavLink>
-                            </div> */}
+                            </div>
+                             */}
+                            <div className="nav-bar-search-container" id="search">
+                                {/* SearchContainer */}
+                                <h6>i'm a search bar insode of nav bar</h6>
+                            </div>
+                            
 
                             <div className='icon-wrapper'>
-                                <Link to={`/${this.currentUser.email}`} className="nav-bar-link">
+                                <Link to={`/${currentUser.id}`} className="nav-bar-link">
+                                {/* <Link to={`/users/${currentUser.id}`} key="28" href="#" className="nav-bar-link"> */}
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">
                                             <div id="profile-icon-frame">
@@ -133,6 +140,8 @@ class NavBar extends React.Component {
                                 </Link> */}
                                 
                                 <Link to="/" className="fas fa-sign-out-alt fa-2x" onClick={() => { this.handleLogout() }}>
+                                {/* <Link to="/" className="fas fa-sign-out-alt fa-2x" onClick={() => { logout }}> */}
+
                                     {/* <div className="icon-container-shadow">
                                         <div className="icon-container">
                                             <i className="fas fa-sign-out-alt"></i>

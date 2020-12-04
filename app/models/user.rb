@@ -22,10 +22,7 @@ class User < ApplicationRecord
     through: :boards,
     source: :boards_pins
 
-  def data
-    keys = ['id', 'email', 'description', 'photo']
-    User.extract_by_keys(self.as_json, keys)
-  end
+ 
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
