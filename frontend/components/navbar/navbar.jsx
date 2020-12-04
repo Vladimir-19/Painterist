@@ -96,7 +96,7 @@ class NavBar extends React.Component {
                             
 
                             <div className='icon-wrapper'>
-                                <Link to={`/${currentUser.id}`} className="nav-bar-link">
+                                <Link to={`/${currentUser.email}`} className="nav-bar-link">
                                 {/* <Link to={`/users/${currentUser.id}`} key="28" href="#" className="nav-bar-link"> */}
                                     <div className="icon-container-shadow">
                                         <div className="icon-container">

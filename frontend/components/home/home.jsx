@@ -1,5 +1,5 @@
 import React from 'react';
-// import PinIndexContainer from "../pin/pin_index_container";
+import PinIndexContainer from "../pin/pin_index_container";
 
 const shuffle = require('shuffle-array');
 
