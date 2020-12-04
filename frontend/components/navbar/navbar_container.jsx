@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    fetchSingleUser: (id) => dispatch(fetchSingleUser(id)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
     logout: () => dispatch(logoutUser()),
     // openModal: modal => dispatch(openModal(modal))

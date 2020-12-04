@@ -2,8 +2,8 @@ import React from "react";
 import { Route, Link, NavLink } from "react-router-dom";
 
 import ProfileSwitches from "./profile_switches";
-// import BoardIndexContainer from "../board/board_index_container";
-// import PinIndexContainer from "../pin/pin_index_container";
+import BoardIndexContainer from "../board/board_index_container";
+import PinIndexContainer from "../pin/pin_index_container";
 
 class ProfileContent extends React.Component {
     // probobly DO NOT NEED this (only in case of error “Cannot read property 'id' of undefined”)
@@ -67,7 +67,7 @@ export default ProfileContent;
 
 ProfileContent.defaultProps = {
     user: {
-        username: '',
+        email: '',
         firstName: '',
         lastName: '',
     }

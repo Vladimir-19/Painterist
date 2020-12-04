@@ -1,9 +1,5 @@
 class Api::UsersController < ApplicationController
-    
-   def new
-    @user_application = UserApplication.new
-    @user = User.find(params[:user_id])
-  end
+   
 
   def create
     @user = User.new(user_params)
@@ -19,11 +15,11 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    # @user = selected_user
-    # render "api/users/show"
+    @user = User.find(params[:id])
+    render "api/users/show"
     # @user = User.find_by(email: params[:id])
-    @user = user.data
-    render :show
+    # @user = user.data
+    # render :show
   end
 
   def index 

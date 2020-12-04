@@ -17,7 +17,11 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :boards
-  has_many :pins
+  has_many :pins,
+    foreign_key: :user_id,
+    class_name: :Pin,
+    dependent: :destroy
+    
   has_many :boards_pins,
     through: :boards,
     source: :boards_pins

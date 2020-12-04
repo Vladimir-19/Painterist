@@ -43,8 +43,6 @@ const App = () => (
             <ProtectedRoute exact path="/:username/:boardTitle" component={BoardShowContainer}/>
              {/* <Route exact path="/" component={SplashContainer} /> */}
              <Route exact path="/" component={HomeContainer} /> 
-            <ProtectedRoute path="/" component={NavBar} />
-
         </Switch>
             
         {/* <Switch>

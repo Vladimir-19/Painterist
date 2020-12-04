@@ -19,7 +19,7 @@ class Pin < ApplicationRecord
     has_one_attached :photo
   # api board pins routes needs a post and a delete 
   has_many :associated_boards,
-    class_name: :JoinPinsBoard,
+    class_name: :BoardsPins,
     foreign_key: :pin_id,
     dependent: :destroy
     #a pin has many associations on the join pin board table. if the pin is destroyed. destroy the association between that pin and that board
