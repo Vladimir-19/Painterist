@@ -9,9 +9,9 @@ const receiveAllUsers = users => ({
     users
 });
 
-const receiveSingleUser = payload => ({
+const receiveSingleUser = id => ({
     type: RECEIVE_SINGLE_USER,
-    payload
+    id
 });
 
 const receiveUserErrors = errors => ({
@@ -26,7 +26,7 @@ export const fetchAllUsers = () => dispatch => (
 
 export const fetchSingleUser = id => dispatch => (
     UserAPIUtil.fetchSingleUser(id)
-        .then(payload => dispatch(receiveSingleUser(payload)))
+        .then(id => dispatch(receiveSingleUser(id)))
 );
 
 export const updateUser = (user, id) => dispatch => (
