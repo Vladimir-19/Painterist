@@ -39,7 +39,7 @@ class ProfileContent extends React.Component {
             <div className="profile-show pin-count-container">
                 <div className="profile-show pin-count">
                     <span className="profile-show number">{userPins.length} </span>
-                    Pins
+                    Pins (from profile_content)
                  </div>
             </div>
         ) : null;

@@ -3,14 +3,18 @@ import { Link } from "react-router-dom";
 
 const ProfileDetails = ({ user }) => {
 
-    const name = (user.firstName) ? (user.firstName + " " + user.lastName) : user.username;
+    // const name = (user.firstName) ? (user.firstName + " " + user.lastName) : user.username;
+    const name = user.firstName && user.lastName  ? <div><span>{currentUser.firstName}</span><span>{currentUser.lastName}</span></div> : <span>Add Your Name</span>;
+
     // const name = "Vladimir S"
     const personalInfo = (user.location && user.description) ? (
         <div id="profile-personal">
             <h4>{user.location} • {user.description}</h4>
             {/* <h5>{user.location} • {user.description}</h5> */}
         </div>
-    ) : null;
+    ) : <div id="profile-personal">
+            <h4>Location • description</h4>
+        </div> 
 
     const profilePhoto = (user.photo) ? (
         <img src={user.photo} alt="profile-pic" id="photo" />
