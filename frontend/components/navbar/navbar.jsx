@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { Link, NavLink } from 'react-router-dom';
-import { logoutUser } from '../../actions/session_actions';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -49,15 +47,18 @@ class NavBar extends React.Component {
     // }
 
     handleLogout() {
-        this.props.logout().then(this.props.openModal('login'));
+        this.props.logout() //.then(this.props.openModal('login'));
+        // error with logout ?? maybe
+
         // this.props.logout().then(this.props.openModal({ modal: 'login' }));
     }
     
 
     render() {
-        const { currentUser, logout, openModal, closeModal } = this.props;
+        const { currentUser, openModal, closeModal } = this.props;
         
-        const profilePhoto = ((currentUser) && (currentUser.photoUrl)) ? (
+        // const profilePhoto = ((currentUser) && (currentUser.photoUrl)) ? (
+        const profilePhoto = (currentUser.photo) ? (
             <img className="nav-profile-image" src={currentUser.photoUrl} />
         ) : (
                 <i className="far fa-user-circle" id="profile-icon"
