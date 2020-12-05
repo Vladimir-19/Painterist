@@ -74,9 +74,9 @@ const receiveBoards = boards => ({
     boards
 });
 
-const receiveBoard = board => ({
+const receiveBoard = payload => ({
     type: RECEIVE_BOARD,
-    board
+    payload
 });
 
 const removeBoard = boardId => ({
@@ -111,8 +111,8 @@ export const fetchBoard = boardId => dispatch => {
 export const createBoard = board => dispatch => (
     BoardAPIUtil.createBoard(board).then(board => (dispatch(receiveBoard(board))
     ), err => (
-        dispatch(receiveSessionErrors(err.responseJSON))
-    ))
+    dispatch(receiveSessionErrors(err.responseJSON))
+  ))
 );
 
 export const updateBoard = board => dispatch => (

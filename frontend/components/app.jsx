@@ -25,7 +25,6 @@ const App = () => (
         {/* loading */}
         <Modal />
         <header>
-            <h1>hello</h1>
             {/* <ProtectedRoute path="/" component={NavBar} /> */}
             <Route path="/" component={NavBar} />
             {/* <NavBar /> */}
