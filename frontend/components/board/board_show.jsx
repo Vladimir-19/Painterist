@@ -1,11 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import BoardShowNavBar from './board_show_nav_bar';
 import PinIndexContainer from "../pin/pin_index_container";
 
+import BoardIndexItem from "./board_index_item"
+
 export default class BoardShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            fetched: false,
+            openPin: false,
+            openPinId: null
+        }
 
         this.openEditBoard = this.openEditBoard.bind(this);
     }
@@ -20,8 +28,26 @@ export default class BoardShow extends React.Component {
     }
 
     render() {
-        const { currentUser, board, pins, boardsPins } = this.props;
+        const { currentUser, board, pins } = this.props;
 
+        if (board.pinIds.length == 0) {
+            return (
+                <div>
+                    <p id='no-pins-yet'>this board has no pins yet!</p>
+                    <Link className="back-arrow-board" to={`/users/${currentUser.id}`}>
+                        <i className="fas fa-arrow-left"></i>
+                    </Link>
+                </div>
+            )
+        }
+        let pinArr = [];
+        if (this.state.fetched == true && board.pinIds.length > 0) {
+            board.pinIds.map(pinId => {
+                if (pinId != 'undefined') {
+                    pinArr.push(pins[pinId])
+                }
+            })
+        }
         const secretIcon = (board.secret) ? (
             <div className="board-show visibility">
                 <i className="fas fa-lock board-show" id="lock-icon"></i>
@@ -30,11 +56,13 @@ export default class BoardShow extends React.Component {
         ) : (
                 null
             );
+
         let boardPins = boardsPins
             .filter(boardPin => board.id === boardPin.boardId)
             .map(boardPin => pins[boardPin.pinId])
             .filter(boardPin => boardPin !== undefined);
 
+        if (pinArr.length > 0) {
         return (
             <div className="board-show container">
                 <div className="board-show header">
@@ -66,13 +94,23 @@ export default class BoardShow extends React.Component {
                     </div>
                 </div>
                 <div className="board-show pin-feed">
-                    <PinIndexContainer
+                    {/* <PinIndexContainer
                         pins={boardPins}
                         page="profile"
-                    />
+                    /> */}
+                    
+                    <ul id='board-list-wrap'>
+                        {pinArr.map((pin) => (
+                            <BoardIndexItem
+                                pin={pin}
+                                key={pin.id}
+                            />
+                        ))}
+                    </ul>
                 </div>
             </div>
         )
+        } else {<p>this board has no pins yet!</p>}
     }
 }
 

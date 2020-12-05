@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Link, NavLink } from "react-router-dom";
 
 import ProfileSwitches from "./profile_switches";
-import BoardIndexContainer from "../board/board_index_container";
+import BoardIndexContainer from "../board/DeLETEboard_index_container";
 import PinIndexContainer from "../pin/pin_index_container";
 
 class ProfileContent extends React.Component {
