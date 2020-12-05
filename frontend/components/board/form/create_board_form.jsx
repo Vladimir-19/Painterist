@@ -186,12 +186,12 @@ class CreateBoardForm extends React.Component {
         this.handleCheck = this.handleCheck.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
-        this.rendereErrors = this.rendereErrors.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     update(e) {
-        // this.setState({ "title": e.currentTarget.value });
-        this.setState({[field]: e.currentTarget.value})
+        this.setState({ "title": e.currentTarget.value });
+        // this.setState({[field]: e.currentTarget.value})
     }
 
     renderErrors() {
@@ -223,11 +223,11 @@ class CreateBoardForm extends React.Component {
     }
 
     handleCreate(e) {
-        // e.preventDefault();
-        // this.props.processForm(this.state)
-        //     .then(this.props.closeModal);
-        const board = Object.assign({}, this.state)
-        this.props.createBoard(board).then((this.props.closeModal) && window.location.reload());
+        e.preventDefault();
+        this.props.processForm(this.state)
+            .then(this.props.closeModal);
+        // const board = Object.assign({}, this.state)
+        // this.props.createBoardForm(board).then((this.props.closeModal) && window.location.reload());
     }
 
     render() {
@@ -242,7 +242,7 @@ class CreateBoardForm extends React.Component {
                             <div className="create-board" id="header-title-container">
                                 <h1 className="create-board" id="header-title">
                                     Create board
-                </h1>
+                                </h1>
                             </div>
                             <div className="create-board" id="close-button-container">
                                 <button
@@ -268,7 +268,7 @@ class CreateBoardForm extends React.Component {
                                                     id="name-label">
                                                     <div className="create-board label-content">
                                                         Name
-                          </div>
+                                                    </div>
                                                 </label>
                                             </div>
                                             <div className="create-board input-container">
@@ -289,8 +289,8 @@ class CreateBoardForm extends React.Component {
                                             </div>
                                         </div>
                                         <div className="create-board field-container" id="visibility">
-                                            <div className="create-board label-container">
-                                                <label
+                                             <div className="create-board label-container">
+                                                 <label
                                                     htmlFor="visibility-input"
                                                     className="create-board label"
                                                     id="visibility-label">
@@ -299,39 +299,41 @@ class CreateBoardForm extends React.Component {
                                                         onClick={this.handleCheck}
                                                     >
                                                         Visibility
-                          </div>
+                                                    </div>
                                                 </label>
+                                                <div className="create-board" id="visibility-note">
+                                                    Keep this board secret.
+                                                </div>
                                             </div>
-                                            <div className="create-board input-container secret">
+                                            {/* <div className="create-board input-container secret"> */}
+                                            <div> 
                                                 <div
                                                     className="create-board"
                                                     id="visibility-checkbox"
                                                     onClick={this.handleCheck}
                                                 >
-                                                    <i
-                                                        className={`fas fa-check-square create-board checkbox ${checked}`}
-                                                        id="visibility-checked"
-                                                    ></i>
+                                                    <i className={`fas fa-check-square create-board checkbox ${checked}`}
+                                                        id="visibility-checked">
+                                                    </i>
+                                                    {/* <i className={`fas fa-toggle-off ${checked}`}></i> */}
                                                 </div>
-                                                <div className="create-board" id="visibility-note">
-                                                    Keep this board secret.
-                        </div>
+
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="create-board footer-container">
+                                    {/* <div className="create-board footer-container"> */}
                                         <div className="create-board footer">
                                             <div className="create-board buttons-container">
                                                 <div className="create-board buttons">
-                                                    <div className="create-board button-container">
+                                                    {/* <div className="create-board button-container">
                                                         <button
                                                             className="create-board button"
                                                             id="cancel"
                                                             onClick={this.handleCancel}
                                                         >
                                                             Cancel
-                            </button>
-                                                    </div>
+                                                         </button>
+                                                    </div> */}
                                                     <div className="create-board button-container">
                                                         <button
                                                             className="create-board button"
@@ -339,12 +341,12 @@ class CreateBoardForm extends React.Component {
                                                             onClick={this.handleCreate}
                                                         >
                                                             Create
-                            </button>
+                                                         </button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    {/* </div> */}
                                 </form>
                             </div>
                         </div>
