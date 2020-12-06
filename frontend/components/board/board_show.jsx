@@ -98,12 +98,13 @@ export default class BoardShow extends React.Component {
                         pins={boardPins}
                         page="profile"
                     /> */}
-                    
                     <ul id='board-list-wrap'>
                         {pinArr.map((pin) => (
                             <BoardIndexItem
-                                pin={pin}
-                                key={pin.id}
+                                // pin={pin}
+                                // key={pin.id}
+                                pins={boardPins}
+                                page="profile"
                             />
                         ))}
                     </ul>

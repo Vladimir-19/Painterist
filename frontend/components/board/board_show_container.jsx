@@ -72,15 +72,27 @@ import { fetchBoards } from '../../actions/board_actions';
 
 import BoardShow from './board_show';
 
+import { fetchSingleUser } from "../../actions/user_actions";
 
-const mapStateToProps = (state, ownProps) => ({
+
+const mapStateToProps = (state, ownProps) => {
+    const board = Object.values(state.entities.boards).find(board =>
+        board.title === ownProps.match.params.boardTitle
+    ) || { board: { id: 0 } };
+    return { 
     currentUser: state.entities.users[state.session.id],
     pins: state.entities.pins,
     modal: state.ui.modal,
-    board: state.entities.boards[ownProps.match.params.boardId]
-});
+    board: state.entities.boards[ownProps.match.params.boardId],
+        boardsPins: Object.values(state.entities.boardsPins),
+
+    }
+};
 
 const mapDispatchToProps = dispatch => ({
+    fetchSingleUser: id => dispatch(fetchSingleUser(id)),
+    openEditBoard: boardId => dispatch(openModal('edit-board', boardId)),
+    closeModal: () => dispatch(closeModal()),
     openModal: modal => dispatch(openModal(modal)),
     fetchPins: () => dispatch(fetchPins()),
     fetchBoards: () => dispatch(fetchBoards())
