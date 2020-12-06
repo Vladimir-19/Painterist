@@ -12,11 +12,13 @@ import CreatePinFormContainer from "./pin/form/create_pin_form_container";
 import PinShowContainer from "./pin/pin_show_container";
 import EditProfileFormContainer from "./profile/edit_profile_form_container";
 import ProfileShowContainer from "./profile/profile_show_container";
-import BoardShowContainer from "./board/board_show_container";
+// import BoardShowContainer from "./board/Xboard_show_container";
+import BoardShow from "./board/board_show_container";
 import HomeContainer from "./home/home_container";
 // import AuthBox from './AuthBox/AuthBox'
 import Footer from './footer/footer'
 import SplashContainer from '../components/splash_page/splash_container'
+
 
 const DummyComponent = () => <h2>I'm logged in</h2>
 
@@ -39,7 +41,7 @@ const App = () => (
             <ProtectedRoute exact path="/:username/pins" component={ProfileShowContainer} />
             <ProtectedRoute exact path="/:username/boards" component={ProfileShowContainer} />
             <ProtectedRoute exact path="/:username" component={ProfileShowContainer} />
-            <ProtectedRoute exact path="/:username/:boardTitle" component={BoardShowContainer}/>
+            <ProtectedRoute exact path="/:username" component={BoardShow}/>
              {/* <Route exact path="/" component={SplashContainer} /> */}
              <Route exact path="/" component={HomeContainer} /> 
         </Switch>

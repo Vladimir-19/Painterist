@@ -34,3 +34,10 @@ export const deletePinOnBoard = (boardPin) => {
         data: { boardPin }
     })
 };
+
+export const fetchAllBoardsPins = () => (
+    $.ajax({
+        method: "GET",
+        url: `/api/boards_pins`
+    })
+);

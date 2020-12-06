@@ -99,8 +99,14 @@
 
 import * as BoardPinAPIUtil from '../util/board_pin_api_util';
 
+export const RECEIVE_ALL_BOARDS_PINS = "RECEIVE_ALL_BOARDS_PINS";
 export const RECEIVE_BOARD_PIN = 'RECEIVE_BOARD_PIN';
 export const REMOVE_BOARD_PIN = 'REMOVE_BOARD_PIN';
+
+const receiveAllBoardsPins = boardsPins => ({
+    type: RECEIVE_ALL_BOARDS_PINS,
+    boardsPins
+});
 
 const receiveBoardPin = board => ({
     type: RECEIVE_BOARD_PIN,
@@ -111,6 +117,12 @@ const removeBoardPin = boardPin => ({
     type: REMOVE_BOARD_PIN,
     boardPin
 });
+
+export const fetchAllBoardsPins = () => dispatch => (
+    BoardPinAPIUtil.fetchAllBoardsPins().then(
+        boardsPins => dispatch(receiveAllBoardsPins(boardsPins))
+    )
+);
 
 export const pinToBoard = boardPin => dispatch => {
     return BoardPinAPIUtil.pinToBoard(boardPin)

@@ -32,7 +32,9 @@ import { fetchSingleUser } from "../../actions/user_actions";
 import { fetchBoards, fetchBoard } from "../../actions/board_actions";
 import { pinToBoard } from "../../actions/board_pin_actions";
 import { openModal, closeModal } from "../../actions/modal_actions";
-import BoardIndex from "./board_index";
+import { fetchAllBoardsPins } from "../../actions/board_pin_actions";
+
+import BoardIndex from "./Xboard_index";
 
 const mapStateToProps = (state, ownProps) => ({
     boards: ownProps.boards,
@@ -43,6 +45,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    fetchAllBoardsPins: () => dispatch(fetchAllBoardsPins()),
     fetchSingleUser: userId => dispatch(fetchSingleUser(userId)),
     fetchBoards: () => dispatch(fetchBoards()),
     pinToBoard: () => dispatch(pinToBoard()),
