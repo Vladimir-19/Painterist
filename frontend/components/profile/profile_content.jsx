@@ -4,6 +4,8 @@ import { Route, Link, NavLink } from "react-router-dom";
 import ProfileSwitches from "./profile_switches";
 import BoardIndexContainer from "../board/board_index_container";
 import PinIndexContainer from "../pin/pin_index_container";
+import { Redirect } from 'react-router-dom';
+
 
 class ProfileContent extends React.Component {
     // probobly DO NOT NEED this (only in case of error “Cannot read property 'id' of undefined”)
@@ -14,7 +16,11 @@ class ProfileContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedSwitch: (location.hash.endsWith('pins')) ? 1 : 0
+            selectedSwitch: (location.hash.endsWith('pins')) ? 1 : 0,
+             pins: '',
+            loading: true,
+            openBoard: false,
+            openBoardId: null
         };
 
         this.selectSwitch = this.selectSwitch.bind(this);
@@ -110,7 +116,7 @@ class ProfileContent extends React.Component {
                                 }
                             }
                             return (
-                                <div value={board.id} id='board-show-list' onClick={this.handleButton}>
+                                <div value={board.id} id='board-show-list' >
                                     {imageTag}
                                     <div id='board-text'>
                                         <li>{board.title}</li>
@@ -122,12 +128,11 @@ class ProfileContent extends React.Component {
                         <div className='edit-create-button-wrapper'>
                             <button
                                 className="plus-board"
-                                onClick={this.handleClick}
                             >
                                 <i className="fas fa-plus"></i>
                             </button>
                             <button className="plus-board"
-                                onClick={this.handleEdit}>
+                                >
                                 <i className="fas fa-pencil-alt"></i>
                             </button>
                         </div>
@@ -149,12 +154,11 @@ class ProfileContent extends React.Component {
                     <div className='edit-create-button-wrapper'>
                         <button
                             className="plus-board"
-                            onClick={this.handleClick}
                         >
                             <i className="fas fa-plus"></i>
                         </button>
                         <button className="plus-board"
-                            onClick={this.handleEdit}>
+                            >
                             <i className="fas fa-pencil-alt"></i>
                         </button>
                     </div>
