@@ -130,6 +130,12 @@ export const pinToBoard = boardPin => dispatch => {
         )
 };
 
+export const createBoardPin = boardPin => dispatch => (
+    BoardPinAPIUtil.createBoardPin(boardPin).then(
+        board => dispatch(receiveBoardPin(boardPin)),
+    )
+);
+
 export const deletePinOnBoard = boardPin => dispatch => {
     return BoardPinAPIUtil.deletePinOnBoard(boardPin)
         .then(board => dispatch(removeBoardPin(board)))

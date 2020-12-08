@@ -19,6 +19,15 @@
 //         url: `/api/boards_pins/${boardPinId}`
 //     })
 // );
+
+export const createBoardPin = boardPin => (
+    $.ajax({
+        method: "POST",
+        url: `/api/boards_pins`,
+        data: { boardPin }
+    })
+);
+
 export const pinToBoard = (boardPin) => {
     return $.ajax({
         method: 'POST',
