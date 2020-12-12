@@ -9,9 +9,13 @@ const receiveAllUsers = users => ({
     users
 });
 
-const receiveSingleUser = id => ({
+// const receiveSingleUser = id => ({ //it was payload insted id
+//     type: RECEIVE_SINGLE_USER,
+//     id
+// });
+const receiveSingleUser = user => ({
     type: RECEIVE_SINGLE_USER,
-    id
+    user
 });
 
 const receiveUserErrors = errors => ({
@@ -26,7 +30,9 @@ export const fetchAllUsers = () => dispatch => (
 
 export const fetchSingleUser = id => dispatch => (
     UserAPIUtil.fetchSingleUser(id)
-        .then(id => dispatch(receiveSingleUser(id)))
+        .then(user => dispatch(receiveSingleUser(user)))
+        // .then(id => dispatch(receiveSingleUser(id)))
+
 );
 
 export const updateUser = (user, id) => dispatch => (

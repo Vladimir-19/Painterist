@@ -187,7 +187,7 @@ import React from "react";
 import { Route, Link, NavLink } from "react-router-dom";
 
 import ProfileSwitches from "./profile_switches";
-// import BoardIndexContainer from "../board/Xboard_index_container";
+import BoardIndexContainer from "../board/board_index_container";
 import PinIndexContainer from "../pin/pin_index_container";
 
 class ProfileContent extends React.Component {
@@ -200,6 +200,11 @@ class ProfileContent extends React.Component {
         this.selectSwitch = this.selectSwitch.bind(this);
     }
 
+            componentDidMount() {
+                this.props.fetchBoards()
+                this.props.fetchPins().then(() => this.setState({ pins: 'fetched', loading: false }))
+            }
+
     selectSwitch(num) {
         this.setState({ selectedSwitch: num });
     }
@@ -211,7 +216,7 @@ class ProfileContent extends React.Component {
         const userPins = pins.filter(pin => pin.userId === user.id);
 
         const contentTabs = [
-            // <BoardIndexContainer />,
+            <BoardIndexContainer user={user} boards={userBoards} />,
             <PinIndexContainer pins={userPins} page='profile' />
         ];
         const selectedTab = contentTabs[this.state.selectedSwitch];

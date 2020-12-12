@@ -91,12 +91,12 @@ class PinIndexItem extends React.Component {
         item.style.gridRowEnd = "span " + rowSpan;
     }
 
-    // componentDidMount(e) {
-    //     setTimeout(() => this.resizeGridItem(), 1500);
-    //     masonryEvents.forEach((e) => window.addEventListener(e, this.resizeGridItem));
-    //     // e.preventDefault();
-    //     // this.props.openModal({ modal: 'pinboard', pinId: this.props.pin.id })
-    // }
+    componentDidMount(e) {
+        setTimeout(() => this.resizeGridItem(), 1500);
+        masonryEvents.forEach((e) => window.addEventListener(e, this.resizeGridItem));
+        // e.preventDefault();
+        // this.props.openModal({ modal: 'pinboard', pinId: this.props.pin.id })
+    }
 
     render() {
         const { userId, user, page, pin, openEditPin, openNewBoardPin } = this.props;
@@ -140,11 +140,15 @@ class PinIndexItem extends React.Component {
             <div id={`${this.state.id}`} className="pin-index-item container">
                 <div className="pin-index-item masonry-item">
                     <Link
-                        to={`/pin/${pin.id}`}
+                        // to={`/pin/${pin.id}`}
+                        to={`/pins/${pin.id}`}
                         className="pin-index-item pin-show-link"
                     >
                         <div className="pin-index-item overlay"></div>
-                        <img src={pin.photo} className="pin-index-item masonry-image" />
+                        <img 
+                        // src={pin.photo} 
+                        src={pin.photoUrl}
+                        className="pin-index-item masonry-image" />
                     </Link>
                     <div className="pin-index-item links">
                         <div className="pin-index-item edit-pin-link-container">{editPinLink}</div>

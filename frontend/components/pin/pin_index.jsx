@@ -4,7 +4,7 @@ import PinIndexItem from "./pin_index_item";
 const shuffle = require("shuffle-array");
 const masonryEvents = ["load", "resize"];
 
-class PinIndex extends React.Component {
+class BoardIndexContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -51,7 +51,7 @@ class PinIndex extends React.Component {
     };
 };
 
-export default PinIndex;
+export default BoardIndexContainer;
             // import React from 'react';
             // import PinIndexItem from './pin_index_item';
             // import StackGrid, { transitions } from "react-stack-grid";
