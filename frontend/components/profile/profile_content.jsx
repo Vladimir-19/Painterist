@@ -200,10 +200,10 @@ class ProfileContent extends React.Component {
         this.selectSwitch = this.selectSwitch.bind(this);
     }
 
-            componentDidMount() {
-                this.props.fetchBoards()
-                this.props.fetchPins().then(() => this.setState({ pins: 'fetched', loading: false }))
-            }
+            // componentDidMount() {
+            //     this.props.fetchBoards()
+            //     this.props.fetchPins().then(() => this.setState({ pins: 'fetched', loading: false }))
+            // }
 
     selectSwitch(num) {
         this.setState({ selectedSwitch: num });
