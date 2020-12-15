@@ -9,11 +9,11 @@ const ProfileSwitches = ({ user, selectedSwitch, onSwitchClick, tabs }) => {
       <NavLink
         key={idx}
         to={`/${user.id}/${label.toLowerCase()}`}
-        isActive={() => {
-          if (!location.hash.includes("/pins")) {
-            return true;
-          }
-        }}
+        // isActive={() => {
+        //   if (!location.hash.includes("/pins")) {
+        //     return true;
+        //   }
+        // }}
         className={`profile-switch-link`}
         activeStyle={{ backgroundColor: '#efefef', color: '#333' }}
         onClick={() => onSwitchClick(idx)}
