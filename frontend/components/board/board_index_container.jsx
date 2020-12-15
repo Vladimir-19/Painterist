@@ -8,6 +8,11 @@ import { openModal, closeModal } from "../../actions/modal_actions";
 import BoardIndex from "./board_index";
 
 const mapStateToProps = (state, ownProps) => ({
+  // boards: ownProps.boards,
+  // boardsPins: state.entities.boardsPins,
+  // pins: state.entities.pins,
+  // currentUser: state.entities.users[state.session.id],
+  // user: ownProps.user
   boards: ownProps.boards,
   boardsPins: state.entities.boardsPins,
   pins: state.entities.pins,
@@ -16,12 +21,19 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  // fetchSingleUser: userId => dispatch(fetchSingleUser(userId)),
+  // fetchBoards: () => dispatch(fetchBoards()),
+  // fetchAllBoardsPins: () => dispatch(fetchAllBoardsPins()),
+  // fetchBoard: (boardId) => dispatch(fetchBoard(boardId)),
+  // newBoard: () => dispatch(openModal("new-board")),
+  // openEditBoard: (boardId) => dispatch(openModal("edit-board", boardId)), // UPDATE MODAL ACTION
   fetchSingleUser: userId => dispatch(fetchSingleUser(userId)),
   fetchBoards: () => dispatch(fetchBoards()),
   fetchAllBoardsPins: () => dispatch(fetchAllBoardsPins()),
   fetchBoard: (boardId) => dispatch(fetchBoard(boardId)),
   newBoard: () => dispatch(openModal("new-board")),
   openEditBoard: (boardId) => dispatch(openModal("edit-board", boardId)), // UPDATE MODAL ACTION
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoardIndex);
