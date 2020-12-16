@@ -40,7 +40,7 @@ const App = () => (
             <ProtectedRoute exact path="/:username/pins" component={ProfileShowContainer} />
             <ProtectedRoute exact path="/:username/boards" component={ProfileShowContainer} />
             <ProtectedRoute exact path="/:username" component={ProfileShowContainer} />
-            <ProtectedRoute exact path="/:username/:boardTitle" component={BoardShowContainer} />
+            <ProtectedRoute exact path="/:username/:boardId" component={BoardShowContainer} />
              {/* <Route exact path="/" component={SplashContainer} /> */}
              <Route exact path="/" component={HomeContainer} /> 
         </Switch>
