@@ -6,7 +6,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 
-// if (process.env.NODE_ENV !== "production") thunk.push(logger);
+// if (process.env.NODE_ENV !== "production") middlewares.push(logger);
 
 const configureStore = (preloadedState = {}) => (// preloadedState is for initialize state 
     createStore(
