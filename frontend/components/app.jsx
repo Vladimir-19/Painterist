@@ -58,7 +58,7 @@ const App = () => (
             <AuthRoute path="/" component={DummyComponent} />
             <Modal />
         </Switch> */}
-        <footer><Footer /></footer>  
+        {/* <footer><Footer /></footer>   */}
     </div>
 );
 export default App;

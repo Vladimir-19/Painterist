@@ -94,13 +94,15 @@ const BoardIndexItem = ({ board, pins, currentUser, user, openEditBoard }) => {
       <i className="fas fa-lock board-index-item" id="lock-icon"></i>
     </div>
   ) : null;
-  const klass = (currentUser.username === user.username) ? 'show' : 'hide';
+  const klass = (currentUser.email === user.email) ? 'show' : 'hide';
+  // const klass = (currentUser.username === user.username) ? 'show' : 'hide';
 
   return (
     <div className="board-index-item container">
       <Link
         to={{
-          pathname: `/${user.username}/${board.title}`,
+          pathname: `/${user.email}/${board.title}`,
+          // pathname: `/${user.username}/${board.title}`,
           state: {
             fromProfile: true
           }
@@ -128,7 +130,7 @@ const BoardIndexItem = ({ board, pins, currentUser, user, openEditBoard }) => {
                 <div className="board-index-item additional">
                   {secretIcon}
                   <div className="board-index-item pin-count">
-                    {numPins} Pins
+                    {numPins} 
                   </div>
                 </div>
               </div>
