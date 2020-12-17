@@ -120,6 +120,7 @@ class BoardShowNavBar extends React.Component {
     return (
       <div className="board-show navbar">
         <div className={`board-show buttons ${klass}`}>
+          from board_show_nav_bar
           <Link to="/pin-builder"
             className="board-show button">
             {/* <i className="fas fa-plus board-show icon" id="create-pin-icon"></i> */}
@@ -134,7 +135,7 @@ class BoardShowNavBar extends React.Component {
         </div>
         <div className="board-show fade-title-container">
           <div className={`board-show fade-title ${transition}`}>
-            {board.title}
+            {board.title}ffff
           </div>
         </div>
         <div className="board-show profile-button-container">

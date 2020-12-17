@@ -39,8 +39,9 @@ export const pinToBoard = (boardPin) => {
 export const deletePinOnBoard = (boardPin) => {
     return $.ajax({
         method: 'DELETE',
-        url: '/api/boardpin/4',
-        data: { boardPin }
+        url: `/api/boards_pins/${boardPinId}`
+        // url: '/api/boardpin/4',
+        // data: { boardPin }
     })
 };
 

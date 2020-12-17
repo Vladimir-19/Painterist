@@ -23,6 +23,24 @@ const receiveUserErrors = errors => ({
     errors
 });
 
+// export const fetchAllUsers = () => dispatch => (
+//     UserAPIUtil.fetchAllUsers()
+//         .then(users => dispatch(receiveAllUsers(users)))
+// );
+
+// export const fetchSingleUser = id => dispatch => (
+//     UserAPIUtil.fetchSingleUser(id)
+//         .then(user => dispatch(receiveSingleUser(user)))
+//         // .then(id => dispatch(receiveSingleUser(id)))
+
+// );
+
+// export const updateUser = (user, id) => dispatch => (
+//     UserAPIUtil.updateUser(user, id).then(
+//         user => dispatch(receiveSingleUser(user)),
+//         err => dispatch(receiveUserErrors(err.responseJSON))
+//     )
+// );
 export const fetchAllUsers = () => dispatch => (
     UserAPIUtil.fetchAllUsers()
         .then(users => dispatch(receiveAllUsers(users)))
@@ -30,9 +48,7 @@ export const fetchAllUsers = () => dispatch => (
 
 export const fetchSingleUser = id => dispatch => (
     UserAPIUtil.fetchSingleUser(id)
-        .then(user => dispatch(receiveSingleUser(user)))
-        // .then(id => dispatch(receiveSingleUser(id)))
-
+        .then(payload => dispatch(receiveSingleUser(payload)))
 );
 
 export const updateUser = (user, id) => dispatch => (
