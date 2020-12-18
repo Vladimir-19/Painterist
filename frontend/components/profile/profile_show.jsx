@@ -104,9 +104,7 @@ class ProfileShow extends React.Component {
                                 closeModal={closeModal}
                             />
                         </div>
-                       {currentUserBoards.map((board, idx) => {
-                           return pins[pinId]
-                       })}
+                  
                     </div>
                     <div id="profile-content-container">
                         <ProfileContent
