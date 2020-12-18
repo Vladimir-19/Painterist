@@ -1,4 +1,7 @@
-    json.partial! "api/boards/board", board: board
+    #json.partial! "api/boards/board", board: board
+json.array!(@boards) do |board|
+  json.partial!('board', board: board)
+end
 
 
  #@boards.each do |board|

@@ -8,12 +8,13 @@ const ProfileSwitches = ({ user, selectedSwitch, onSwitchClick, tabs }) => {
     return (idx === 0) ? (
       <NavLink
         key={idx}
-        to={`/${user.id}/${label.toLowerCase()}`}
-        // isActive={() => {
-        //   if (!location.hash.includes("/pins")) {
-        //     return true;
-        //   }
-        // }}
+        // to={`/${user.username}/${label.toLowerCase()}`}
+        to={`/${user.email}/${label.toLowerCase()}`}
+        isActive={() => {
+          if (!location.hash.includes("/pins")) {
+            return true;
+          }
+        }}
         className={`profile-switch-link`}
         activeStyle={{ backgroundColor: '#efefef', color: '#333' }}
         onClick={() => onSwitchClick(idx)}
@@ -23,14 +24,15 @@ const ProfileSwitches = ({ user, selectedSwitch, onSwitchClick, tabs }) => {
     ) : (
         <NavLink
           key={idx}
-          to={`/${user.id}/${label.toLowerCase()}`}
+          // to={`/${user.username}/${label.toLowerCase()}`}
+          to={`/${user.email}/${label.toLowerCase()}`}
           className={`profile-switch-link`}
           activeStyle={{ backgroundColor: '#efefef', color: '#333' }}
           onClick={() => onSwitchClick(idx)}
-            >            
+        >
           <div className="profile-switch-link-label">{label}</div>
         </NavLink>
-    );
+      );
   });
 
   return (

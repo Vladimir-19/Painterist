@@ -77,19 +77,19 @@ class ProfileShow extends React.Component {
     }
 
     componentDidMount() {
-        const username = this.props.match.params.username;
+        const username = this.props.match.params.email;
         const fetchUser = (userId) => this.props.fetchSingleUser(userId);
 
         this.props.fetchAllUsers()
             .then(res => {
-                const user = Object.values(res.users).find(user => user.username === username);
+                const user = Object.values(res.users).find(user => user.email === username);
                 return fetchUser(user.id);
             });
     }
 
     render() {
-        const { currentUser, users, username, boards, pins, openModal, closeModal } = this.props;
-        const user = users.find(user => user.username === username);
+        const { currentUser, users, email, username, boards, pins, openModal, closeModal } = this.props;
+        const user = users.find(user => user.email === email);
 
         return (
             <div id="profile-background">
@@ -103,15 +103,16 @@ class ProfileShow extends React.Component {
                                 closeModal={closeModal}
                             />
                         </div>
-                        <div id="profile-content-container">
-                            <ProfileContent
-                                user={user}
-                                boards={boards}
-                                pins={pins}
-                                openModal={openModal}
-                                closeModal={closeModal}
-                            />
-                        </div>
+                       
+                    </div>
+                    <div id="profile-content-container">
+                        <ProfileContent
+                            user={user}
+                            boards={boards}
+                            pins={pins}
+                            openModal={openModal}
+                            closeModal={closeModal}
+                        />
                     </div>
                 </div>
             </div>
