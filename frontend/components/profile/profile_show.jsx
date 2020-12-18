@@ -91,6 +91,7 @@ class ProfileShow extends React.Component {
         const { currentUser, users, email, username, boards, pins, openModal, closeModal } = this.props;
         const user = users.find(user => user.email === email);
 
+        const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
         return (
             <div id="profile-background">
                 <div id="profile-container">
@@ -103,7 +104,9 @@ class ProfileShow extends React.Component {
                                 closeModal={closeModal}
                             />
                         </div>
-                       
+                       {currentUserBoards.map((board, idx) => {
+                           return pins[pinId]
+                       })}
                     </div>
                     <div id="profile-content-container">
                         <ProfileContent
