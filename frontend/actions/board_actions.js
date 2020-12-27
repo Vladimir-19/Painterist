@@ -98,7 +98,7 @@ export const fetchBoards = () => dispatch => {
 
 export const fetchBoard = boardId => dispatch => { 
     return BoardAPIUtil.fetchBoard(boardId).then(
-        board => dispatch(receiveBoard(board))
+        payload => dispatch(receiveBoard(payload))
     )
 };
 

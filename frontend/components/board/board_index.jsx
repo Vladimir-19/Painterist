@@ -91,7 +91,7 @@ class BoardIndex extends Component {
         });
         return (
           <BoardIndexItem
-            key={Board.id}
+            key={board.id}
             board={board}
             pins={previewPins}
             currentUser={currentUser}

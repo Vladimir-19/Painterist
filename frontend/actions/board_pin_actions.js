@@ -124,11 +124,11 @@ export const fetchAllBoardsPins = () => dispatch => (
     )
 );
 
-export const pinToBoard = boardPin => dispatch => {
-    return BoardPinAPIUtil.pinToBoard(boardPin)
-        .then(board => dispatch(receiveBoardPin(board))
-        )
-};
+// export const pinToBoard = boardPin => dispatch => {
+//     return BoardPinAPIUtil.pinToBoard(boardPin)
+//         .then(board => dispatch(receiveBoardPin(board))
+//         )
+// };
 
 export const createBoardPin = boardPin => dispatch => (
     BoardPinAPIUtil.createBoardPin(boardPin).then(
@@ -136,7 +136,7 @@ export const createBoardPin = boardPin => dispatch => (
     )
 );
 
-export const deletePinOnBoard = boardPin => dispatch => {
-    return BoardPinAPIUtil.deletePinOnBoard(boardPin)
+export const deleteBoardPin = boardPin => dispatch => {
+    return BoardPinAPIUtil.deleteBoardPin(boardPin)
         .then(board => dispatch(removeBoardPin(board)))
 };

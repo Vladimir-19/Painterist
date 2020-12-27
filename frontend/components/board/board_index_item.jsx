@@ -94,14 +94,14 @@ const BoardIndexItem = ({ board, pins, currentUser, user, openEditBoard }) => {
       <i className="fas fa-lock board-index-item" id="lock-icon"></i>
     </div>
   ) : null;
-  const klass = (currentUser.email === user.email) ? 'show' : 'hide';
+  const klass = (currentUser.id === user.id) ? 'show' : 'hide';
   // const klass = (currentUser.username === user.username) ? 'show' : 'hide';
 
   return (
     <div className="board-index-item container">
       <Link
         to={{
-          pathname: `/${user.email}/${board.title}`,
+          pathname: `/${user.email}`, //`/${user.email}/${board.title}`,
           // pathname: `/${user.username}/${board.title}`,
           state: {
             fromProfile: true
