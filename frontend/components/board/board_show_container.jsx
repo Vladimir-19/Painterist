@@ -35,7 +35,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import { fetchSingleUser } from "../../actions/user_actions";
+import { fetchUser } from "../../actions/user_actions"; //fetchSingleUser
 // import { fetchBoards, fetchBoard } from "../../actions/board_actions";
 import { openModal, closeModal } from "../../actions/modal_actions";
 import BoardShow from './board_show';
@@ -55,7 +55,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchSingleUser: id => dispatch(fetchSingleUser(id)),
+  // fetchSingleUser: id => dispatch(fetchSingleUser(id)),
+    fetchUser: id => dispatch(fetchUser(id)),
   // fetchBoards: () => dispatch(fetchBoards()),
   // fetchBoard: boardId => dispatch(fetchBoard(boardId)),
   openEditBoard: boardId => dispatch(openModal('edit-board', boardId)),

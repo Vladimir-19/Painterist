@@ -300,13 +300,13 @@ class ProfileContent extends React.Component {
         return (
             <div id="profile-content">
                 <div id="profile-switches-wrapper">
-                   fuck you from profile content
-                    {/* <ProfileSwitches
+                   {/* fuck you from profile content */}
+                    <ProfileSwitches
                         user={user}
                         selectedSwitch={this.state.selectedSwitch}
                         onSwitchClick={this.selectSwitch}
                         tabs={contentTabs}
-                    /> */}
+                    />
                     {pinCount}
                 </div>
                 <div id="profile-tab-wrapper">

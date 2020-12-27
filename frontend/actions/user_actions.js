@@ -1,7 +1,8 @@
 import * as UserAPIUtil from "../util/user_api_util";
 
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
-export const RECEIVE_SINGLE_USER = "RECEIVE_SINGLE_USER";
+// export const RECEIVE_SINGLE_USER = "RECEIVE_SINGLE_USER";
+export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 
 const receiveAllUsers = users => ({
@@ -9,14 +10,18 @@ const receiveAllUsers = users => ({
     users
 });
 
-// const receiveSingleUser = id => ({ //it was payload insted id
+// const receiveSingleUser = payload => ({ //it was id insted id
 //     type: RECEIVE_SINGLE_USER,
-//     id
+//     payload
 // });
-const receiveSingleUser = user => ({
-    type: RECEIVE_SINGLE_USER,
-    user
-});
+    // const receiveSingleUser = user => ({
+    //     type: RECEIVE_SINGLE_USER,
+    //     user
+    // });
+        const receiveUser = user => ({
+            type: RECEIVE_USER,
+            user
+        });
 
 const receiveUserErrors = errors => ({
     type: RECEIVE_USER_ERRORS,
@@ -46,10 +51,14 @@ export const fetchAllUsers = () => dispatch => (
         .then(users => dispatch(receiveAllUsers(users)))
 );
 
-export const fetchSingleUser = id => dispatch => (
-    UserAPIUtil.fetchSingleUser(id)
-        .then(payload => dispatch(receiveSingleUser(payload)))
-);
+// export const fetchSingleUser = id => dispatch => (
+//     UserAPIUtil.fetchSingleUser(id)
+//         .then(payload => dispatch(receiveSingleUser(payload)))
+// );
+export const fetchUser = userId => dispatch(
+    APIUtil.fetchUser(userId).then(
+        user => dispatch(receiveUser(user)))
+)
 
 export const updateUser = (user, id) => dispatch => (
     UserAPIUtil.updateUser(user, id).then(

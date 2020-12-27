@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import React from "react";
 
-import { fetchSingleUser } from "../../actions/user_actions";
+import { fetchUser } from "../../actions/user_actions"; //fetchSingleUser
 import { fetchBoards, fetchBoard } from "../../actions/board_actions";
 import { fetchAllBoardsPins } from "../../actions/board_pin_actions";
 import { openModal, closeModal } from "../../actions/modal_actions";
@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => ({
   // fetchBoard: (boardId) => dispatch(fetchBoard(boardId)),
   // newBoard: () => dispatch(openModal("new-board")),
   // openEditBoard: (boardId) => dispatch(openModal("edit-board", boardId)), // UPDATE MODAL ACTION
-  fetchSingleUser: userId => dispatch(fetchSingleUser(userId)),
+  fetchUser: userId => dispatch(fetchUser(userId)),
   fetchBoards: () => dispatch(fetchBoards()),
   fetchAllBoardsPins: () => dispatch(fetchAllBoardsPins()),
   fetchBoard: (boardId) => dispatch(fetchBoard(boardId)),

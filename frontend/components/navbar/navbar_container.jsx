@@ -5,7 +5,7 @@ import NavBar from './navbar';
 
 import { logoutUser } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
-import { fetchAllUsers, fetchSingleUser } from "../../actions/user_actions"
+import { fetchAllUsers, fetchUser} from "../../actions/user_actions" //fetchSingleUser
 
 const mapStateToProps = state => ({
     // currentUser: session && session.id && entities.users[session.id]
@@ -13,7 +13,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchSingleUser: (id) => dispatch(fetchSingleUser(id)),
+    // fetchSingleUser: (id) => dispatch(fetchSingleUser(id)),
+    fetchUser: (id) => dispatch(fetchUser(id)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
     logout: () => dispatch(logoutUser()),
     // openModal: modal => dispatch(openModal(modal))

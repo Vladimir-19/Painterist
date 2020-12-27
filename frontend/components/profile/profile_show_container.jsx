@@ -27,7 +27,7 @@
 import { connect } from "react-redux";
 import React from "react";
 
-import { fetchAllUsers, fetchSingleUser } from "../../actions/user_actions";
+import { fetchAllUsers, fetchUser } from "../../actions/user_actions"; //fetchSingleUser
 import { openModal, closeModal } from "../../actions/modal_actions";
 import ProfileShow from "./profile_show";
 
@@ -42,7 +42,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchAllUsers: () => dispatch(fetchAllUsers()),
-    fetchSingleUser: id => dispatch(fetchSingleUser(id)),
+    // fetchSingleUser: id => dispatch(fetchSingleUser(id)),
+    fetchUser: id => dispatch(fetchUser(id)),
     openModal: modal => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal())
 });

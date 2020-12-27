@@ -29,7 +29,8 @@
 // }
 
 // export default BoardsReducer;
-import { RECEIVE_SINGLE_USER } from "../actions/user_actions";
+// import { RECEIVE_SINGLE_USER } from "../actions/user_actions";
+import { RECEIVE_USER } from "../actions/user_actions";
 import {
     RECEIVE_BOARDS,
     RECEIVE_BOARD,
@@ -42,8 +43,10 @@ const BoardsReducer = (oldState = {}, action) => {
     let nextState = Object.assign({}, oldState);
 
     switch (action.type) {
-        case RECEIVE_SINGLE_USER:
-            return Object.assign(nextState, action.payload.boards);
+        // case RECEIVE_SINGLE_USER:
+        //     return Object.assign(nextState, action.payload.boards);
+        case RECEIVE_USER:
+            return Object.assogm(mextState, action.payload.boards)
         case RECEIVE_BOARDS:
             return action.boards
         case RECEIVE_BOARD:
